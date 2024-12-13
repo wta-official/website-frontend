@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 import Image from "next/image";
 import { histories } from "@/data/data";
 

@@ -15,9 +15,8 @@ const Hero = () => {
         <h1
           id="hero-heading"
           className="text-4xl md:text-6xl lg:text-[84px] font-extralight leading-tight md:leading-[1.2]"
-        >
-          Discover the <br />
-          <span className="font-bold">Future's Icons Today</span>
+        >Discover the <br />
+          <span className="font-bold">{"Future's"} Icons Today</span>
         </h1>
       </motion.div>
 

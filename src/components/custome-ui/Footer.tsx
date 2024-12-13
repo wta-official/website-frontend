@@ -1,6 +1,5 @@
 "use client";
 import "../../../src/app/globals.css";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
