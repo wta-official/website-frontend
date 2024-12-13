@@ -22,10 +22,10 @@ const QUICK_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { href: "#", ariaLabel: "Instagram", Icon: Instagram },
-  { href: "#", ariaLabel: "Facebook", Icon: Facebook },
-  { href: "#", ariaLabel: "Twitter", Icon: X },
-  { href: "#", ariaLabel: "LinkedIn", Icon: Linkedin },
+  { href: "/", ariaLabel: "Instagram", Icon: Instagram },
+  { href: "/", ariaLabel: "Facebook", Icon: Facebook },
+  { href: "/", ariaLabel: "Twitter", Icon: X },
+  { href: "/", ariaLabel: "LinkedIn", Icon: Linkedin },
 ];
 
 // Carousel Component
