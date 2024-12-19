@@ -33,7 +33,7 @@ const Homepage: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-[#151515] text-gray-200">
+      <main className="bg-[#151515] text-gray-200 w-[100vw]">
         {/* Hero Section */}
         <Hero />
 
@@ -43,18 +43,18 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={fadeIn}
-          className="relative bg-black py-36 flex flex-col justify-center items-center"
+          className="relative bg-black py-24 flex flex-col justify-center items-center"
         >
           <div className="absolute inset-0 opacity-10 flex items-center justify-center">
             <Carousel />
           </div>
-          <div className="relative z-10 text-center space-y-6">
-            <h1 className="text-6xl leading-[102px]">
+          <div className="relative z-10 text-center space-y-4">
+            <h1 className="text-4xl leading-[60px]">
               <span className="opacity-50 block">Welcome to the vibrant</span>
               <span className="block">realm of The Working</span>
               <span className="block">Talent Agency (WTA)</span>
             </h1>
-            <p className="text-4xl font-semibold mt-8">
+            <p className="text-2xl font-semibold mt-6">
               Where Africa’s brightest stars find their home.
             </p>
           </div>
@@ -76,28 +76,28 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={staggerContainer}
-          className="bg-[#151515] px-20 py-32 text-white space-y-16"
+          className="bg-[#151515] px-6 sm:px-20 py-16 sm:py-32 text-white space-y-16"
         >
           <div className="flex justify-between items-center">
-            <h2 className="text-6xl leading-10">Our Talents</h2>
+            <h2 className="text-4xl sm:text-6xl leading-10">Our Talents</h2>
             <Link
               href="#"
-              className="border border-white rounded-full px-10 py-4 text-xl hover:bg-white hover:text-black transition-all"
+              className="border border-white rounded-full px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
             >
               See Our Talents
             </Link>
           </div>
           <motion.div
             variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6"
           >
             {talents.map((talent, index) => (
               <motion.div key={index} variants={fadeIn}>
                 <Image
                   src={talent}
                   alt={`Talent ${index + 1}`}
-                  width={300}
-                  height={300}
+                  width={250}
+                  height={250}
                   className="object-cover rounded-md"
                 />
               </motion.div>
@@ -111,13 +111,15 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={staggerContainer}
-          className="bg-[#151515] px-20 pb-32 text-white space-y-16"
+          className="bg-[#151515] px-6 sm:px-20 pb-20 sm:pb-32 text-white space-y-16"
         >
           <div className="flex justify-between items-center">
-            <h2 className="text-6xl leading-10">Our Services</h2>
+            <h2 className="hidden md:block  text-4xl sm:text-6xl leading-10">
+              Our Services
+            </h2>
             <Link
               href="#"
-              className="border border-white rounded-full px-10 py-4 text-xl hover:bg-white hover:text-black transition-all"
+              className="border border-white rounded-full px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
             >
               See Our Services
             </Link>
@@ -131,7 +133,7 @@ const Homepage: React.FC = () => {
               <motion.div
                 key={index}
                 variants={fadeIn}
-                className="flex justify-between border-b border-gray-600 w-full text-5xl pb-6"
+                className="flex justify-between border-b border-gray-600 w-full text-xl sm:text-5xl pb-6"
               >
                 <h3>{service.title}</h3>
                 <span className="font-bold">{service.number}</span>
@@ -155,33 +157,35 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={staggerContainer}
-          className="py-32 px-20 text-white"
+          className="py-16 sm:py-32 px-6 sm:px-20 text-white"
         >
-          <h2 className="text-4xl font-light mb-4">In the Spotlight:</h2>
-          <h3 className="text-5xl font-bold mb-8">Latest News & Highlights</h3>
+          <h2 className="text-2xl sm:text-4xl font-light mb-4">
+            In the Spotlight:
+          </h2>
+          <h3 className="text-3xl sm:text-5xl font-bold mb-8">
+            Latest News & Highlights
+          </h3>
 
           <HorizontalScroll>
             {latestNewsFeeds.map((newsFeed, index) => (
               <motion.div
                 key={index}
                 variants={fadeIn}
-                className="max-w-[calc(50%-1rem)] flex-shrink-0 snap-start overflow-hidden"
+                className="max-w-[calc(75%-1rem)] sm:max-w-[calc(25%-1rem)] flex-shrink-0 snap-start overflow-hidden"
               >
                 <Link href="/">
                   <Image
                     src={newsFeed.image}
                     alt={newsFeed.title}
-                    width={500}
-                    height={300}
+                    width={400} // Reduced width for mobile
+                    height={250} // Adjusted height for consistency
                     className="w-full object-cover rounded-md"
                   />
-                  <div className="p-4 space-y-6">
-                    <h4 className="text-3xl font-semibold mb-2">
+                  <div className="p-3 sm:p-4 space-y-4 sm:space-y-6">
+                    <h4 className="text-lg sm:text-2xl font-semibold mb-2">
                       {newsFeed.title}
                     </h4>
-                    <span
-                      className="flex items-center space-x-2 text-3xl hover:underline"
-                    >
+                    <span className="flex items-center space-x-1 sm:space-x-2 text-lg sm:text-xl hover:underline">
                       <span>Read more</span> <ArrowRight />
                     </span>
                   </div>
@@ -191,7 +195,7 @@ const Homepage: React.FC = () => {
           </HorizontalScroll>
         </motion.section>
 
-        <div className="pb-32">
+        <div className="pb-20 sm:pb-32">
           <FAQ />
         </div>
       </main>
