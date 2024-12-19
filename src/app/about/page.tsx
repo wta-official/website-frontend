@@ -1,3 +1,5 @@
+import '../globals.css'
+
 import Aboutpage from "@/components/About";
 import { Metadata } from "next";
 

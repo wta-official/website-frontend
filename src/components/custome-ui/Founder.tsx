@@ -5,10 +5,14 @@ import Link from "next/link";
 
 const Founder = () => {
   return (
-    <div className="px-20 py-10 text-white">
-      <h1 className="text-6xl font-[84px] mb-8">Our Founders</h1>
+    <div className="px-6 md:px-20 py-10 text-white">
+      {/* Title */}
+      <h1 className="text-3xl md:text-6xl font-bold mb-8 text-center md:text-left">
+        Our Founders
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {founders.map((founder, index) => (
           <Link
             key={index}
@@ -19,7 +23,7 @@ const Founder = () => {
             aria-label={`View details about ${founder.name}`}
           >
             {/* Founder Image */}
-            <div className="relative h-[392px] overflow-hidden">
+            <div className="relative h-60 md:h-[392px] overflow-hidden">
               <Image
                 src={founder.image || "/fallback-image.jpg"}
                 alt={founder.name || "Founder image"}
@@ -29,11 +33,15 @@ const Founder = () => {
             </div>
 
             {/* Founder Details */}
-            <div className="p-6 w-full mt-10">
-              <p className="text-4xl font-semibold">{founder.name || "Unknown"}</p>
-              <div className="flex items-center mt-4 space-x-2">
-                <p className="text-3xl">{founder.position || "Position not specified"}</p>
-                <ArrowRight className="w-12 h-10 group-hover:text-gray-400" />
+            <div className="p-4 md:p-6 w-full">
+              <p className="text-xl md:text-4xl font-semibold">
+                {founder.name || "Unknown"}
+              </p>
+              <div className="flex items-center mt-2 md:mt-4 space-x-2">
+                <p className="text-lg md:text-2xl">
+                  {founder.position || "Position not specified"}
+                </p>
+                <ArrowRight className="w-6 h-6 md:w-8 md:h-8 group-hover:text-gray-400" />
               </div>
             </div>
           </Link>
