@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section
-      className="relative hero-gif text-white flex flex-col justify-center px-20 z-10" /* Ensure it’s behind the header */
+      className="relative hero-gif text-white flex flex-col justify-center px-4 sm:px-8 md:px-16 z-10 max-h-[600px] min-h-[300px] lg:min-h-[500px]"
       aria-labelledby="hero-heading"
     >
       <motion.div
@@ -14,14 +14,15 @@ const Hero = () => {
       >
         <h1
           id="hero-heading"
-          className="text-4xl md:text-6xl lg:text-[84px] font-extralight leading-tight md:leading-[1.2]"
-        >Discover the <br />
+          className="text-lg sm:text-xl md:text-3xl font-extralight leading-snug md:leading-tight text-center sm:text-left"
+        >
+          Discover the <br />
           <span className="font-bold">{"Future's"} Icons Today</span>
         </h1>
       </motion.div>
 
       <motion.p
-        className="mt-6 text-lg md:text-2xl leading-7 md:leading-10 max-w-3xl"
+        className="mt-4 text-sm sm:text-base md:text-lg leading-5 sm:leading-6 md:leading-8 max-w-full sm:max-w-2xl text-center sm:text-left"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}

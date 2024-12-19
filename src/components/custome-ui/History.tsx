@@ -1,30 +1,37 @@
 import Image from "next/image";
 import { histories } from "@/data/data";
 
-
 const History = () => {
   return (
-    <div className="flex text-white px-20 pb-10 space-x-20 justify-between">
-      <h1 className="text-6xl mt-10">Our History</h1>
-      <div className="no-scrollbar max-w-[900px] overflow-y-auto h-[587px] relative px-20">
-        <div className="">
+    <div className="flex flex-col md:flex-row text-white px-6 md:px-20 pb-10 md:space-x-20 justify-between">
+      {/* Title */}
+      <h1 className="text-3xl md:text-6xl mt-10 md:mt-0 mb-8 md:mb-0 text-center md:text-left">
+        Our History
+      </h1>
+
+      {/* Scrollable Content */}
+      <div className="no-scrollbar max-w-full md:max-w-[900px] overflow-y-auto h-[500px] md:h-[587px] relative px-4 md:px-10">
+        <div>
           {histories.map((history, index) => (
-            <div key={index} className="relative p-10">
-              <div className="space-y-10 p-10 history-bg">
-                <h2 className="text-5xl">{history.date}</h2>
-                <p className="text-2xl text-gray-300">{history.history}</p>
+            <div
+              key={index}
+              className="relative p-6 md:p-10 border-l-4 border-[#474747]"
+            >
+              <div className="space-y-6 md:space-y-10 p-6 md:p-10 history-bg">
+                <h2 className="text-2xl md:text-5xl">{history.date}</h2>
+                <p className="text-base md:text-2xl text-gray-300">
+                  {history.history}
+                </p>
               </div>
 
-              <div className="absolute top-10 left-0 border-l-4 border-[#474747] h-full w-10">
-                {/* <div className="relative w-52"> */}
+              <div className="absolute top-6 md:top-10 left-0 -ml-3 md:-ml-5">
                 <Image
                   src="/images/checkmark-badge-02.svg"
                   alt="checkbox"
-                  width="10000"
-                  height="10000"
-                  className="absolute -left-5 -top-2 size-10 z-50"
+                  width={40} // Smaller size for mobile
+                  height={40}
+                  className="w-6 h-6 md:w-10 md:h-10 z-50"
                 />
-                {/* </div> */}
               </div>
             </div>
           ))}
