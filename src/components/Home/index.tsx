@@ -3,12 +3,11 @@ import Carousel from "@/components/custome-ui/Carousel";
 import Hero from "@/components/custome-ui/Hero";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { latestNewsFeeds, talents } from "@/data/data";
+import { talents } from "@/data/data";
 import Head from "next/head";
 import { motion } from "framer-motion";
-import HorizontalScroll from "@/components/custome-ui/HorizontalScroll";
 import FAQ from "@/components/custome-ui/FAQ";
+import News from "@/components/custome-ui/News";
 
 const Homepage: React.FC = () => {
   const fadeIn = {
@@ -33,7 +32,7 @@ const Homepage: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-[#151515] text-gray-200 w-[100vw]">
+      <main className="bg-[#151515] text-gray-200 w-full">
         {/* Hero Section */}
         <Hero />
 
@@ -43,32 +42,38 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={fadeIn}
-          className="relative bg-black py-24 flex flex-col justify-center items-center"
+          className="relative bg-black py-16 sm:py-24 flex flex-col justify-center items-center"
         >
           <div className="absolute inset-0 opacity-10 flex items-center justify-center">
-            <Carousel />
+            <Carousel>
+              <p className="leading-[10vw] m-0 text-white text-[8vw] text-center">
+                WORKING TALENT AGENCY
+              </p>
+            </Carousel>
           </div>
-          <div className="relative z-10 text-center space-y-4">
-            <h1 className="text-4xl leading-[60px]">
+          <div className="relative z-10 text-center space-y-4 px-4">
+            <h1 className="text-3xl sm:text-5xl leading-snug sm:leading-tight">
               <span className="opacity-50 block">Welcome to the vibrant</span>
               <span className="block">realm of The Working</span>
               <span className="block">Talent Agency (WTA)</span>
             </h1>
-            <p className="text-2xl font-semibold mt-6">
+            <p className="text-lg sm:text-2xl font-semibold mt-4">
               Where Africa’s brightest stars find their home.
             </p>
           </div>
         </motion.section>
 
         {/* Highlight Image */}
-        <Image
-          src="/images/image1.png"
-          alt="Welcome Banner"
-          width={1440}
-          height={1000}
-          priority
-          className="w-full h-auto"
-        />
+        <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
+          <Image
+            src="/images/image1.png"
+            alt="Welcome Banner"
+            layout="fill"
+            objectFit="cover"
+            priority
+            className="rounded-md"
+          />
+        </div>
 
         {/* Talents Section */}
         <motion.section
@@ -76,29 +81,31 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={staggerContainer}
-          className="bg-[#151515] px-6 sm:px-20 py-16 sm:py-32 text-white space-y-16"
+          className="bg-[#151515] px-4 sm:px-10 lg:px-20 py-10 sm:py-16 lg:py-24 text-white"
         >
-          <div className="flex justify-between items-center">
-            <h2 className="text-4xl sm:text-6xl leading-10">Our Talents</h2>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6 sm:mb-0">
+              Our Talents
+            </h2>
             <Link
-              href="#"
-              className="border border-white rounded-full px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
+              href="/talents"
+              className="border border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
             >
               See Our Talents
             </Link>
           </div>
           <motion.div
             variants={staggerContainer}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
           >
             {talents.map((talent, index) => (
               <motion.div key={index} variants={fadeIn}>
                 <Image
                   src={talent}
                   alt={`Talent ${index + 1}`}
-                  width={250}
-                  height={250}
-                  className="object-cover rounded-md"
+                  width={300}
+                  height={300}
+                  className="object-cover rounded-md w-full h-full"
                 />
               </motion.div>
             ))}
@@ -111,20 +118,20 @@ const Homepage: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={staggerContainer}
-          className="bg-[#151515] px-6 sm:px-20 pb-20 sm:pb-32 text-white space-y-16"
+          className="bg-[#151515] px-4 sm:px-10 lg:px-20 pb-16 sm:pb-24 lg:pb-32 text-white"
         >
-          <div className="flex justify-between items-center">
-            <h2 className="hidden md:block  text-4xl sm:text-6xl leading-10">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6 sm:mb-0">
               Our Services
             </h2>
             <Link
-              href="#"
-              className="border border-white rounded-full px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
+              href="/services"
+              className="border border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
             >
               See Our Services
             </Link>
           </div>
-          <div className="space-y-10">
+          <div className="space-y-8">
             {[
               { title: "Representation", number: "01" },
               { title: "Public Relations", number: "02" },
@@ -133,69 +140,33 @@ const Homepage: React.FC = () => {
               <motion.div
                 key={index}
                 variants={fadeIn}
-                className="flex justify-between border-b border-gray-600 w-full text-xl sm:text-5xl pb-6"
+                className="flex justify-between border-b border-gray-600 pb-4"
               >
-                <h3>{service.title}</h3>
-                <span className="font-bold">{service.number}</span>
+                <h3 className="text-lg sm:text-2xl">{service.title}</h3>
+                <span className="font-bold text-lg sm:text-2xl">
+                  {service.number}
+                </span>
               </motion.div>
             ))}
           </div>
         </motion.section>
 
         {/* Highlight Image */}
-        <Image
-          src="/images/image2.png"
-          alt="Services Banner"
-          width={1440}
-          height={1000}
-          className="w-full h-auto"
-        />
+        <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
+          <Image
+            src="/images/image2.png"
+            alt="Services Banner"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-md"
+          />
+        </div>
 
         {/* Latest News Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={staggerContainer}
-          className="py-16 sm:py-32 px-6 sm:px-20 text-white"
-        >
-          <h2 className="text-2xl sm:text-4xl font-light mb-4">
-            In the Spotlight:
-          </h2>
-          <h3 className="text-3xl sm:text-5xl font-bold mb-8">
-            Latest News & Highlights
-          </h3>
+        <News />
 
-          <HorizontalScroll>
-            {latestNewsFeeds.map((newsFeed, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn}
-                className="max-w-[calc(75%-1rem)] sm:max-w-[calc(25%-1rem)] flex-shrink-0 snap-start overflow-hidden"
-              >
-                <Link href="/">
-                  <Image
-                    src={newsFeed.image}
-                    alt={newsFeed.title}
-                    width={400} // Reduced width for mobile
-                    height={250} // Adjusted height for consistency
-                    className="w-full object-cover rounded-md"
-                  />
-                  <div className="p-3 sm:p-4 space-y-4 sm:space-y-6">
-                    <h4 className="text-lg sm:text-2xl font-semibold mb-2">
-                      {newsFeed.title}
-                    </h4>
-                    <span className="flex items-center space-x-1 sm:space-x-2 text-lg sm:text-xl hover:underline">
-                      <span>Read more</span> <ArrowRight />
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </HorizontalScroll>
-        </motion.section>
-
-        <div className="pb-20 sm:pb-32">
+        {/* FAQ Section */}
+        <div className="pb-10 sm:pb-20 lg:pb-32">
           <FAQ />
         </div>
       </main>

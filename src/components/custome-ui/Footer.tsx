@@ -105,7 +105,9 @@ const Footer = () => {
 
       {/* Carousel Section */}
       <div className="mt-8 lg:mt-12">
-        <Carousel />
+        <Carousel>
+          <p className="leading-[326px] m-0 text-white text-[279px]">WORKING TALENT AGENCY</p>
+        </Carousel>
       </div>
 
       {/* Footer Bottom Section */}

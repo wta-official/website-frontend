@@ -8,31 +8,31 @@ import clsx from "clsx";
 const Header = () => {
   const url = usePathname();
   const home = "/";
-  const [isSticky, setIsSticky] = useState(false);
+  // const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { href: "/about", label: "About" },
     { href: "/career", label: "Career" },
-    { href: "/our-talents", label: "Our Talents" },
+    { href: "/talents", label: "Our Talents" },
     { href: "/services", label: "Services" },
     { href: "/blog", label: "Blog" },
   ];
 
   // Scroll handling for sticky header
-  const handleScroll = () => {
-    if (window.scrollY > 100) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (window.scrollY > 100) {
+  //     setIsSticky(true);
+  //   } else {
+  //     setIsSticky(false);
+  //   }
+  // };
 
-  // Attaching scroll event listener on mount and cleanup on unmount
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // // Attaching scroll event listener on mount and cleanup on unmount
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <header
@@ -40,14 +40,14 @@ const Header = () => {
         "transition-all duration-300 ease-in-out fixed top-0 left-0 w-full z-50",
         url !== home ? "border-b border-[#474747]" : "bg-[#202020]",
         "bg-opacity-70 backdrop-blur-sm shadow-md",
-        isSticky ? "sticky" : "absolute"
+        // isSticky ? "sticky" : "absolute"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between py-2 px-4 lg:px-6 relative">
+      <div className="container mx-auto flex items-center justify-between px-4 lg:px-6 relative">
         {/* Logo */}
         <Link href="/" aria-label="Home">
           <Image
-            className="dark:invert"
+            className="dark:invert w-12 md:w-20 lg:w-28"
             src="/images/companyLogo.svg"
             alt="Company Logo"
             width={110}
