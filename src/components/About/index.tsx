@@ -4,15 +4,9 @@ import History from "@/components/custome-ui/History";
 import MissionAndVision from "@/components/custome-ui/MissionAndVision";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
 import Expandable from "../custome-ui/Expandable";
 
 const About = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <main className="bg-[#151515]">
@@ -62,9 +56,8 @@ const About = () => {
       <Image
         src="/images/about/image2.png"
         alt="Services Banner"
-        layout="fill"
-        objectFit="cover"
-        className="rounded-md"
+        fill
+        className="rounded-md object-cover"
       />
       </div>
 

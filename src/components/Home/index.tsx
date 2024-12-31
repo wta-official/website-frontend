@@ -68,10 +68,9 @@ const Homepage: React.FC = () => {
           <Image
             src="/images/image1.png"
             alt="Welcome Banner"
-            layout="fill"
-            objectFit="cover"
+            fill
             priority
-            className="rounded-md"
+            className="rounded-md object-cover"
           />
         </div>
 
@@ -156,9 +155,8 @@ const Homepage: React.FC = () => {
           <Image
             src="/images/image2.png"
             alt="Services Banner"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-md"
+            fill
+            className="rounded-md object-cover"
           />
         </div>
 
