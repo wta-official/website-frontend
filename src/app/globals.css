@@ -36,6 +36,32 @@ body {
 .history-bg {
   background: linear-gradient(180deg, #1a1a1a 100%, #2b2b2b 80%);
 }
+
+
+/* Style the input field */
+.datepicker {
+  width: 150px; /* Adjust width for yy/mm/dd */
+  padding: 10px;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Change placeholder or text alignment */
+.datepicker::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Add focus styles */
+#datepicker:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
 }
 
 
@@ -79,3 +105,5 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+

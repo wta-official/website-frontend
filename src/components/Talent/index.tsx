@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import TriangleLoader from "../custome-ui/Loader";
+import Link from "next/link";
 
 // Props Type
 type Props = {
@@ -100,9 +101,9 @@ const TalentPage = async ({ params }: Props) => {
                   <FacebookIcon />
                 </Socials>
               </div>
-              <Button className="px-6 py-2 md:px-8 md:py-3 border rounded-full hover:bg-gray-800 hover:text-white transition">
+              <Link href={`/form/${id}`} className="flex gap-4 px-6 py-2 md:px-8 md:py-3 border rounded-full hover:bg-gray-800 hover:text-white transition">
                 BOOK THIS ARTIST <ArrowRight className="ml-2" />
-              </Button>
+              </Link>
             </div>
           </div>
         </Images>
