@@ -1,17 +1,26 @@
-import TalentPage from '@/components/Talent'
-import React from 'react'
-
+import TalentPage from '@/components/Talent';
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Talents",
+type Props = {
+  params: { id: string };
 };
 
-
-const Talent: React.FC = () => {
-  return (
-   <TalentPage />
-  )
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  return {
+    title: `Talent: ${resolvedParams.id}`,
+  };
 }
 
-export default Talent
+const Talent = async ({ params }: Props) => {
+  const resolvedParams = await params;
+  // console.log(resolvedParams);
+
+  return (
+    <div>
+      <TalentPage params={resolvedParams.id} />
+    </div>
+  );
+};
+
+export default Talent;

@@ -10,11 +10,25 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import Images from "@/components/custome-ui/Images";
-import { blogPosts } from "@/data/data";
 import Link from "next/link";
 import Image from "next/image";
 
-const formatDate = (dateString: string) => {
+// Define types for the blog object
+interface Blog {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  image: string;
+}
+
+// Define props for the BlogPage component
+interface BlogPageProps {
+  blogs: Blog[];
+}
+
+const formatDate = (dateString: string): string => {
   return new Date(dateString).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -22,21 +36,23 @@ const formatDate = (dateString: string) => {
   });
 };
 
-const BlogPage = () => {
-  const itemsPerPage = 13;
-  const [currentPage, setCurrentPage] = useState(1);
+const BlogPage: React.FC<BlogPageProps> = ({ blogs }) => {
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
+  // Calculate total pages
   const totalPages = useMemo(
-    () => Math.ceil(blogPosts.length / itemsPerPage),
-    [blogPosts.length]
+    () => Math.ceil(blogs.length / itemsPerPage),
+    [blogs.length]
   );
 
+  // Get blogs for the current page
   const paginatedBlogs = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
-    return blogPosts.slice(startIndex, startIndex + itemsPerPage);
-  }, [currentPage, itemsPerPage]);
+    return blogs.slice(startIndex, startIndex + itemsPerPage);
+  }, [currentPage, itemsPerPage, blogs]);
 
-  const handlePageChange = (page: number) => {
+  const handlePageChange = (page: number): void => {
     if (page >= 1 && page <= totalPages) setCurrentPage(page);
   };
 
@@ -44,7 +60,7 @@ const BlogPage = () => {
     <div>
       {/* Hero Section */}
       {paginatedBlogs[0] && (
-        <Link href="#">
+        <Link href={`blogs/${paginatedBlogs[0].id}`}>
           <Images imageUrl={paginatedBlogs[0].image}>
             <div className="flex-grow w-full flex flex-col justify-end px-4 sm:px-6 md:px-12 lg:px-20 py-6">
               <div className="md:mb-6 space-y-2">
@@ -67,8 +83,8 @@ const BlogPage = () => {
 
       {/* Blog Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 px-4 sm:px-6 md:px-12 lg:px-16 md:py-8">
-        {paginatedBlogs.slice(1).map((post, index) => (
-          <Link key={index} href="#" className="group">
+        {paginatedBlogs.slice(1).map((post) => (
+          <Link key={post.id} href={`blogs/${post.id}`} className="group">
             <div className="relative w-full h-48 md:h-56 lg:h-64 overflow-hidden rounded-lg">
               <Image
                 src={post.image}
@@ -80,7 +96,7 @@ const BlogPage = () => {
             </div>
             <div className="my-4 space-y-2">
               <p className="space-x-2 text-xs sm:text-sm text-gray-300">
-                <span>{formatDate(post.date)}</span>
+                <span>{post.date}</span>
                 <span>.</span>
                 <span>{post.author}</span>
               </p>

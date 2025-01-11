@@ -221,7 +221,7 @@ Master's degree in Acting from ArtsEd London. As an actor, he was cast in severa
   },
   {
     id: 2,
-    name: "Folu Storms",
+    name: "Folu Storm",
     positions: ["Voice Artist", "Presenter"],
     image: OurTalent2,
     details: {
@@ -664,3 +664,8 @@ export const blogPosts = [
     image: "/images/blog/image12.png",
   },
 ];
+
+
+
+
+

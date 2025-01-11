@@ -29,12 +29,12 @@ const AlphabetSearch = ({ onFilter }: { onFilter: (letter: string) => void }) =>
   );
 };
 
-const SearchTalents = () => {
+const SearchTalents = ({talents}) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const filteredData = ourTalents.filter((item) =>
+  const filteredData = talents.filter((item) =>
     item.name.toLowerCase().startsWith(searchQuery.toLowerCase())
   );
-
+console.log(talents)
   return (
     <div>
       {/* Search Bar */}
