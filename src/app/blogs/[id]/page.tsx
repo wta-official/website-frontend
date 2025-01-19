@@ -53,9 +53,7 @@ const formatContent = (content: string): string => {
 const Blog = async ({ params }: Props) => {
   try {
     const resolvedParams = await params;
-    console.log(resolvedParams.id)
     const blog = await fetchApi(`blogs/${resolvedParams.id}`);
-    console.log(blog);
     return (
       <Suspense
         fallback={

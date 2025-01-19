@@ -16,11 +16,9 @@ const Blog = async () => {
 
     // Handle case where blogs data is empty or not found
     if (!blogs || blogs.results.length === 0) {
-      console.warn("No blogs found.");
+      console.log("No blogs found.");
       return <NotFound />;
     }
-
-    console.log("Fetched Blogs:", blogs);
 
     return (
       <Suspense

@@ -34,7 +34,6 @@ const SearchTalents = ({talents}) => {
   const filteredData = talents.filter((item) =>
     item.name.toLowerCase().startsWith(searchQuery.toLowerCase())
   );
-console.log(talents)
   return (
     <div>
       {/* Search Bar */}

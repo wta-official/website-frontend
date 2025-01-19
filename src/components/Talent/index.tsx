@@ -2,7 +2,6 @@ import NotFound from "@/app/not-found";
 import { fetchApi } from "@/utils/api";
 import { Metadata } from "next";
 import Images from "../custome-ui/Images";
-import { Button } from "@/components/ui/button";
 import Socials from "../custome-ui/Socials";
 import Biography from "../custome-ui/Biography";
 import Carousel from "../custome-ui/Carousel";

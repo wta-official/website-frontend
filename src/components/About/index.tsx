@@ -1,6 +1,6 @@
 "use client";
 import Founder from "@/components/custome-ui/Founder";
-import History from "@/components/custome-ui/History";
+// import History from "@/components/custome-ui/History";
 import MissionAndVision from "@/components/custome-ui/MissionAndVision";
 import { motion } from "framer-motion";
 import Image from "next/image";

@@ -14,7 +14,6 @@ interface TalentsCardProps {
 }
 
 const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
-  console.log( talentInfo.name.split(" ").join("").toLowerCase())
   return (
     <div
       className="w-full sm:max-w-[45%] lg:max-w-[30%] snap-start transition-all duration-300 rounded-lg text-white shadow-md group"
