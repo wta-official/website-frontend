@@ -19,7 +19,7 @@ const FounderPage = () => {
   }
 
   return (
-    <div className="bg-[#131313] text-white min-h-screen flex flex-col">
+    <div className="bg-[#131313] text-white flex flex-col">
       {/* Hero Section */}
       <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
         <Image

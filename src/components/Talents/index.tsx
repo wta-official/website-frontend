@@ -17,13 +17,9 @@ const TalentsPage = async () => {
           <h1 className="text-2xl min-w-96 font-bold mb-4 md:text-4xl">
             Meet The Faces of Tomorrow.
           </h1>
-          <p className="text-lg leading-relaxed md:text-xl">
-            At Working Talent Agency, we take pride in representing a diverse
-            and dynamic roster of talent. Our clients are the driving force
-            behind our success, and we are dedicated to showcasing their unique
-            skills and abilities. Whether you're looking for a captivating
-            actor, a chart-topping musician, or a stunning model, you'll find
-            the perfect match here.
+          <p className="text-base md:text-lg lg:text-xl leading-relaxed md:leading-loose">
+          At Working Talent Agency, we take immense pride in representing a diverse and ever-evolving roster of exceptional talent. Each of our clients plays an integral role in our success, and we are dedicated to showcasing their unique qualities and remarkable abilities to the world. We believe that talent is not just a skill but a powerful story waiting to be told. That's why we work tirelessly to amplify their voices, create meaningful opportunities, and ensure that their impact is felt across industries. 
+
           </p>
         </div>
 

@@ -13,9 +13,9 @@ const Header = () => {
 
   const navLinks = [
     { href: "/about", label: "About" },
-    { href: "/career", label: "Career" },
-    { href: "/talents", label: "Our Talents" },
-    { href: "/services", label: "Services" },
+    // { href: "/career", label: "Career" },
+    { href: "/talents", label: "Talents" },
+    // { href: "/services", label: "Services" },
     { href: "/blogs", label: "Blog" },
   ];
 
@@ -60,7 +60,7 @@ const Header = () => {
         {/* Mobile Menu Drawer */}
         <div
           className={clsx(
-            "fixed top-0 right-0 h-[100vh] w-2/3 md:w-1/3 bg-[#202020] bg-opacity-90 backdrop-blur-md z-40 transition-transform duration-300 ease-in-out transform",
+            "fixed top-0 right-0 h-[100vh] w-2/3 md:w-1/3 bg-[#202020] bg-opacity-90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out transform",
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
@@ -81,7 +81,7 @@ const Header = () => {
               </svg>
             </button>
           </div>
-          <nav>
+          <nav className="-mt-20 flex-grow flex items-center justify-center h-full">
             <ul className="flex flex-col items-center space-y-6 text-lg text-white">
               {navLinks.map((link) => (
                 <li key={link.href}>

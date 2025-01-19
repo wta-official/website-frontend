@@ -6,7 +6,7 @@ import Link from "next/link";
 import { talents } from "@/data/data";
 import Head from "next/head";
 import { motion } from "framer-motion";
-import FAQ from "@/components/custome-ui/FAQ";
+// import FAQ from "@/components/custome-ui/FAQ";
 import News from "@/components/custome-ui/News";
 
 const Homepage: React.FC = () => {
@@ -51,7 +51,7 @@ const Homepage: React.FC = () => {
               </p>
             </Carousel>
           </div>
-          <div className="relative z-10 text-center space-y-4 px-4">
+          <div className="relative z-10 text-center space-y-4 px-4 opacity-0">
             <h1 className="text-3xl sm:text-5xl leading-snug sm:leading-tight">
               <span className="opacity-50 block">Welcome to the vibrant</span>
               <span className="block">realm of The Working</span>
@@ -63,7 +63,7 @@ const Homepage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* Highlight Image */}
+        {/* Highlight Image
         <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
           <Image
             src="/images/image1.png"
@@ -72,7 +72,7 @@ const Homepage: React.FC = () => {
             priority
             className="rounded-md object-cover"
           />
-        </div>
+        </div> */}
 
         {/* Talents Section */}
         <motion.section
@@ -84,7 +84,7 @@ const Homepage: React.FC = () => {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6 sm:mb-0">
-              Our Talents
+              Talents
             </h2>
             <Link
               href="/talents"
@@ -121,20 +121,22 @@ const Homepage: React.FC = () => {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6 sm:mb-0">
-              Our Services
+              Services
             </h2>
-            <Link
+            {/* <Link
               href="/services"
               className="border border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-xl hover:bg-white hover:text-black transition-all"
             >
               See Our Services
-            </Link>
+            </Link> */}
           </div>
           <div className="space-y-8">
             {[
-              { title: "Representation", number: "01" },
-              { title: "Public Relations", number: "02" },
+              { title: "Talent Representation and Management ", number: "01" },
+              { title: "Brand Partnerships and Endorsements", number: "02" },
               { title: "Career Development", number: "03" },
+              { title: "Creative Industry Consulting ", number: "04" },
+              { title: "Marketing & Communications", number: "05" },
             ].map((service, index) => (
               <motion.div
                 key={index}
@@ -164,9 +166,9 @@ const Homepage: React.FC = () => {
         <News />
 
         {/* FAQ Section */}
-        <div className="pb-10 sm:pb-20 lg:pb-32">
+        {/* <div className="pb-10 sm:pb-20 lg:pb-32">
           <FAQ />
-        </div>
+        </div> */}
       </main>
     </>
   );

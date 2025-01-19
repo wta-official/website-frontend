@@ -29,11 +29,11 @@ const News: React.FC = () => {
       className="p-6 sm:p-8 lg:p-16 text-white"
     >
       <h2 className="text-2xl lg:text-4xl leading-tight mb-6 sm:mb-0 font-bold">
-        In the Spotlight:
+        In the news
       </h2>
-      <h3 className="text-2xl lg:text-4xl leading-tight mb-6 sm:mb-0">
-        Latest News & Highlights
-      </h3>
+      {/* <h3 className="text-2xl lg:text-4xl leading-tight mb-6 sm:mb-0">
+      In the news
+      </h3> */}
 
       <HorizontalScroll>
         {latestNewsFeeds.map((newsFeed, index) => (
