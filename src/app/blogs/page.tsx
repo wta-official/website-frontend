@@ -10,9 +10,12 @@ export const metadata: Metadata = {
 };
 
 const Blog = async () => {
+  const page = 1;
   try {
     // Fetching blog data
-    const blogs = await fetchApi("blogs");
+    const blogs = await fetchApi(`blogs/?page=${page}`);
+  const totalPages = blogs.count % 10 === 0 ? Math.floor(blogs.count / 10) : Math.floor(blogs.count / 10) + 1;
+
 
     // Handle case where blogs data is empty or not found
     if (!blogs || blogs.results.length === 0) {
@@ -34,7 +37,7 @@ const Blog = async () => {
         }
       >
         {/* Render the BlogPage component with fetched data */}
-        <BlogPage blogs={blogs.results} />
+        <BlogPage blogs={blogs.results} totalPages={totalPages} />
       </Suspense>
     );
   } catch (error) {

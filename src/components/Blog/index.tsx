@@ -26,6 +26,7 @@ interface Blog {
 // Define props for the BlogPage component
 interface BlogPageProps {
   blogs: Blog[];
+  totalPages: number;
 }
 
 const formatDate = (dateString: string): string => {
@@ -36,15 +37,15 @@ const formatDate = (dateString: string): string => {
   });
 };
 
-const BlogPage: React.FC<BlogPageProps> = ({ blogs }) => {
-  const itemsPerPage = 5;
+const BlogPage: React.FC<BlogPageProps> = ({ blogs, totalPages }) => {
+  const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   // Calculate total pages
-  const totalPages = useMemo(
-    () => Math.ceil(blogs.length / itemsPerPage),
-    [blogs.length]
-  );
+  // const totalPages = useMemo(
+  //   () => Math.ceil(blogs.length / itemsPerPage),
+  //   [blogs.length]
+  // );
 
   // Get blogs for the current page
   const paginatedBlogs = useMemo(() => {
