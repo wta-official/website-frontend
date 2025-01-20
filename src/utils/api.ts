@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-const BASE_URL = process.env.WTAAPIURL || "https://website-backend-es29.onrender.com/api";
+const BASE_URL = process.env.NEXT_PUBLIC_WTA_API_URL || "https://website-backend-es29.onrender.com/api";
 console.log(BASE_URL)
 
 if (!BASE_URL) {
