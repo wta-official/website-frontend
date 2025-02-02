@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import Images from "@/components/custome-ui/Images";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import React from 'react';
+import Images from '@/components/custome-ui/Images';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 type Props = {
   gallery: string[];
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const HeroSection: React.FC<Props> = ({ gallery, nickName, socialLinks }) => (
-    <Images imageUrl={talent.image}>
+  <Images imageUrl={talent.image}>
     <div className="w-full flex justify-center items-end bg-gradient-to-t from-black/80 via-black/50 to-transparent">
       <div className="p-6 md:p-10 lg:p-20 flex flex-col items-center space-y-6 text-white">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">

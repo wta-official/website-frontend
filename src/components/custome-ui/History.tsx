@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { histories } from "@/data/data";
+import Image from 'next/image';
+import { histories } from '@/data/data';
 
 const History = () => {
   return (
