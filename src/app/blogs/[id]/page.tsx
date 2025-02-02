@@ -1,62 +1,61 @@
-import Images from "@/components/custome-ui/Images";
-import TriangleLoader from "@/components/custome-ui/Loader";
-import { fetchApi } from "@/utils/api";
-import { Metadata } from "next";
-import React, { Suspense } from "react";
+import Images from '@/components/custome-ui/Images';
+import TriangleLoader from '@/components/custome-ui/Loader';
+import { fetchApi } from '@/utils/api';
+import { Metadata } from 'next';
+import React, { Suspense } from 'react';
 
 type Props = {
   params: { id: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const resolvedParams = await params;
+  const resolvedParams = params;
   return {
     title: `Blogs: ${resolvedParams.id}`,
   };
 }
 
 const formatDate = (dateString: string): string => {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 };
 
 const formatContent = (content: string): string => {
-  const sections = content.split("\n\n"); // Assuming double newlines as section separators
+  const sections = content.split('\n\n'); // Assuming double newlines as section separators
   return sections
     .map((section, index) => {
       if (index === 0) {
         return `<p class=\"text-xl font-semibold\">${section}</p>`;
       }
-      if (section.startsWith("1.")) {
+      if (section.startsWith('1.')) {
         const items = section
-          .split("\n")
+          .split('\n')
           .map((item) => `<li>${item.slice(2)}</li>`);
-        return `<ol class=\"list-decimal ml-6\">${items.join("")}</ol>`;
+        return `<ol class=\"list-decimal ml-6\">${items.join('')}</ol>`;
       }
-      if (section.startsWith("-")) {
+      if (section.startsWith('-')) {
         const items = section
-          .split("\n")
+          .split('\n')
           .map((item) => `<li>${item.slice(1)}</li>`);
-        return `<ul class=\"list-disc ml-6\">${items.join("")}</ul>`;
+        return `<ul class=\"list-disc ml-6\">${items.join('')}</ul>`;
       }
       if (section.includes('"')) {
         return `<blockquote class=\"border-l-4 pl-4 italic text-gray-400\">${section}</blockquote>`;
       }
       return `<p>${section}</p>`;
     })
-    .join("");
+    .join('');
 };
-
 
 const Blog = async ({ params }: Props) => {
   try {
-    const resolvedParams = await params;
+    const resolvedParams = params;
     const blog = await fetchApi(`blogs/${resolvedParams.id}`);
 
-    console.log("hello0");
+    console.log('hello0');
     return (
       <Suspense
         fallback={
@@ -96,7 +95,7 @@ const Blog = async ({ params }: Props) => {
       </Suspense>
     );
   } catch (error) {
-    console.error("Error fetching blog data:", error);
+    console.error('Error fetching blog data:', error);
     return (
       <div className="flex justify-center items-center min-h-screen">
         <TriangleLoader visible={true} height={80} width={80} color="#6785A5" />
