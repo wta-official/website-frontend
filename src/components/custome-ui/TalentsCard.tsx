@@ -1,16 +1,10 @@
-import { ArrowRight } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-
-interface TalentInfo {
-  id: number;
-  name: string;
-  roles: string[];
-  image: StaticImageData;
-}
+import { Talent } from '@/data/data';
+import { ArrowRight } from 'lucide-react';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 interface TalentsCardProps {
-  talentInfo: TalentInfo;
+  talentInfo: Talent;
 }
 
 const TalentsCard = ({ talentInfo }: TalentsCardProps) => {

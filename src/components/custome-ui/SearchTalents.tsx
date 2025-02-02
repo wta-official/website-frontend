@@ -4,6 +4,7 @@ import { Search } from 'lucide-react';
 import { Input } from '../ui/input';
 import { useState } from 'react';
 import TalentsCard from './TalentsCard';
+import { Talent } from '@/data/data';
 
 const AlphabetSearch = ({
   onFilter,
@@ -32,7 +33,7 @@ const AlphabetSearch = ({
   );
 };
 
-const SearchTalents = ({ talents }) => {
+const SearchTalents = ({ talents }: { talents: Talent[] }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const filteredData = talents.filter((item) =>
     item.name.toLowerCase().startsWith(searchQuery.toLowerCase())
