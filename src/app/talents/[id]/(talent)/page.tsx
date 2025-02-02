@@ -2,7 +2,7 @@ import TalentPage from '@/components/Talent';
 import { Metadata } from 'next';
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -1,14 +1,12 @@
-import TalentsPage from "@/components/Talents";
-import { Metadata } from "next";
+import TalentsPage from '@/components/Talents';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Talents",
+  title: 'Talents',
 };
 
-const Talents: React.FC = () => {
-  return (
-    <TalentsPage />
-  )
-}
+const Talents = () => {
+  return <TalentsPage />;
+};
 
-export default Talents
+export default Talents;
