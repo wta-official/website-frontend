@@ -50,10 +50,13 @@ const formatContent = (content: string): string => {
     .join("");
 };
 
+
 const Blog = async ({ params }: Props) => {
   try {
     const resolvedParams = await params;
     const blog = await fetchApi(`blogs/${resolvedParams.id}`);
+
+    console.log("hello0");
     return (
       <Suspense
         fallback={
@@ -71,7 +74,7 @@ const Blog = async ({ params }: Props) => {
           <div className="flex-grow w-full flex flex-col justify-end px-4 sm:px-6 md:px-12 lg:px-20 py-6">
             <div className="md:mb-6 space-y-2">
               <p className="space-x-2 text-sm md:text-base lg:text-lg text-gray-300">
-                <span>{formatDate(blog.date)}</span>
+                <span>{formatDate(blog.created_at)}</span>
                 <span>.</span>
                 <span>{blog.author}</span>
               </p>

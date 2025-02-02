@@ -9,8 +9,10 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import axios from "axios";
 import { format } from "date-fns";
 import { ArrowRight, CalendarIcon } from "lucide-react";
+import { useParams } from "next/navigation";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
 // Define the type for form data
@@ -20,7 +22,6 @@ interface FormData {
   phone: string;
   event: string;
   date: string;
-  eventType: string;
   note?: string; // Optional
 }
 
@@ -50,6 +51,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, value, onChange }) => {
         value={value}
         onChange={onChange}
         className="w-full px-2 py-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        aria-required={true}
       />
     </div>
   );
@@ -84,21 +86,25 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
         value={value}
         onChange={onChange}
         className="w-full min-h-52 px-2 py-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        aria-required={false}
       />
     </div>
   );
 };
 
 const Form: React.FC = () => {
+  const params = useParams();
+  const { id } = params;
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     event: "",
     date: "",
-    eventType: "",
     note: "",
   });
+  console.log(process.env.NEXT_PUBLIC_WTA_API_URL);
 
   const handleChange =
     (field: keyof FormData) =>
@@ -106,30 +112,69 @@ const Form: React.FC = () => {
       setFormData((prev) => ({ ...prev, [field]: e.target.value }));
     };
 
-  const formInputs = [
-    { label: "Full Name", field: "name" },
-    { label: "Email Address", field: "email" },
-    { label: "Phone Number", field: "phone" },
-    { label: "Event Name", field: "event" },
-    { label: "Event Type", field: "eventType" },
-  ];
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
 
-    // Basic validation example
+    // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
       alert("Please fill out all required fields.");
       return;
     }
 
-    // Add API submission logic here
+    // Combine form data with the talent ID
+    const payload = {
+      talent: id,
+      ...formData,
+    };
+
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_WTA_API_URL}/bookings/`,
+        {
+          talent: payload.talent,
+          fullname: payload.name,
+          email: payload.email,
+          phone: payload.phone,
+          event_name: payload.event,
+          event_date: payload.date,
+          additional_notes: payload.note,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      console.log("Booking successful:", response.data);
+      alert("Booking submitted successfully!");
+    } catch (error: any) {
+      console.log(error.response);
+      if (axios.isAxiosError(error) && error.response) {
+        const status = error.response.status;
+        if (status >= 400 && status < 500) {
+          alert(error.response.data?.event_date || "A client error occurred.");
+        }
+      } else {
+        alert("An error occurred while submitting the booking.");
+      }
+    }
   };
+
+  const formInputs = [
+    { label: "Full Name", field: "name" },
+    { label: "Email Address", field: "email" },
+    { label: "Phone Number", field: "phone" },
+    { label: "Event Name", field: "event" },
+  ];
 
   return (
     <div className="mt-40 pb-20 bg-white text-black p-4 min-h-screen flex justify-center items-center">
-      <form onSubmit={handleSubmit} className="w-full md:w-2/4 max-w-[786px]">
+      <form
+        onSubmit={handleSubmit}
+        method="post"
+        className="w-full md:w-2/4 max-w-[786px]"
+      >
         <fieldset className="flex flex-col gap-8">
           <legend className="mb-10 text-2xl md:text-4xl font-semibold">
             Contact Information
@@ -149,7 +194,9 @@ const Form: React.FC = () => {
             <label
               htmlFor="date"
               className={`absolute left-2 top-0 flex items-center text-gray-500 transition-all duration-200 ${
-                formData.date ? "text-sm -translate-y-4 inline-block" : "text-base translate-y-0 hidden"
+                formData.date
+                  ? "text-sm -translate-y-4 inline-block"
+                  : "text-base translate-y-0 hidden"
               }`}
             >
               Date
@@ -178,12 +225,10 @@ const Form: React.FC = () => {
                   onSelect={(date) =>
                     setFormData((prev) => ({
                       ...prev,
-                      date: date ? date.toISOString().split("T")[0] : "",
+                      date: date ? format(date, "yyyy-MM-dd") : "",
                     }))
                   }
-                  disabled={(date) =>
-                    date > new Date() || date < new Date("1900-01-01")
-                  }
+                  disabled={(date) => date < new Date("1900-01-01")} // Only disables dates before 1900
                 />
               </PopoverContent>
             </Popover>
