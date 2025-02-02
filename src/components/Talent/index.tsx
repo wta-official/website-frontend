@@ -18,7 +18,7 @@ import Link from 'next/link';
 
 // Props Type
 type Props = {
-  params: { id: string };
+  params: { id?: string };
 };
 
 // Talent Type
