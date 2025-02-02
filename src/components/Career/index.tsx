@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Images from "@/components/custome-ui/Images";
-import { useState } from "react";
-import Button from "@/components/custome-ui/Button";
-import { ArrowUpRight, Clock5, MapPin } from "lucide-react";
-import Expandable from "@/components/custome-ui/Expandable";
+import Images from '@/components/custome-ui/Images';
+import { useState } from 'react';
+import Button from '@/components/custome-ui/Button';
+import { ArrowUpRight, Clock5, MapPin } from 'lucide-react';
+import Expandable from '@/components/custome-ui/Expandable';
 
 type CareerData = {
   title: string;
@@ -28,41 +28,41 @@ type CardProps = {
 
 const CAREER_DATA: CareerData[] = [
   {
-    title: "Innovative Environment",
+    title: 'Innovative Environment',
     description: `Be part of a dynamic and forward-thinking team that is always striving to push boundaries and set new industry standards.`,
   },
   {
-    title: "Professional Growth",
+    title: 'Professional Growth',
     description: `We invest in the development of our employees, offering numerous opportunities for training, mentorship, and career advancement.`,
   },
   {
-    title: "Collaborative Culture",
+    title: 'Collaborative Culture',
     description: `Work alongside talented and passionate professionals in a supportive and inclusive environment where your ideas and contributions are valued.`,
   },
   {
-    title: "Impactful Work",
+    title: 'Impactful Work',
     description: `Contribute to the success and growth of talented individuals, helping them achieve their dreams and make a lasting impact in the entertainment industry.`,
   },
 ];
 
 const JOBS: Job[] = [
   {
-    title: "Talent Agent",
+    title: 'Talent Agent',
     description: `We are seeking an experienced Talent Agent to join our team. The ideal candidate will have a strong network within the entertainment industry, excellent negotiation skills, and a passion for discovering and representing new talent.`,
-    type: "Hybrid",
-    schedule: "Full-time",
+    type: 'Hybrid',
+    schedule: 'Full-time',
   },
   {
-    title: "Public Relations Specialist",
+    title: 'Public Relations Specialist',
     description: `We are looking for a creative and strategic Public Relations Specialist to join our PR team. The ideal candidate will have a proven track record of successful PR campaigns, excellent writing skills, and the ability to build strong media relationships.`,
-    type: "Hybrid",
-    schedule: "Full-time",
+    type: 'Hybrid',
+    schedule: 'Full-time',
   },
   {
-    title: "Career Development Coach",
+    title: 'Career Development Coach',
     description: `We are seeking a dedicated Career Development Coach to support our talent in achieving their professional goals. The ideal candidate will have experience in coaching or mentoring, strong interpersonal skills, and a passion for helping others succeed.`,
-    type: "Hybrid",
-    schedule: "Full-time",
+    type: 'Hybrid',
+    schedule: 'Full-time',
   },
 ];
 
@@ -75,23 +75,23 @@ const Card: React.FC<CardProps> = ({
 }) => (
   <div
     className={`space-y-6 p-${
-      isJobCard ? "4 md:p-8" : "12 md:p-16"
+      isJobCard ? '4 md:p-8' : '12 md:p-16'
     } rounded-lg hover:shadow-lg transition-shadow duration-300 ${
       isJobCard
-        ? "bg-[#202020]"
-        : "bg-gradient-to-tr from-black via-black via-85% to-gray-800 to-100%"
+        ? 'bg-[#202020]'
+        : 'bg-gradient-to-tr from-black via-black via-85% to-gray-800 to-100%'
     } w-full`}
   >
     <h2
       className={`text-2xl md:text-4xl font-semibold ${
-        !isJobCard ? "text-center" : "text-left"
+        !isJobCard ? 'text-center' : 'text-left'
       } text-white`}
     >
       {title}
     </h2>
     <p
       className={`text-base md:text-lg text-gray-400 ${
-        !isJobCard ? "text-center" : "text-left"
+        !isJobCard ? 'text-center' : 'text-left'
       }`}
     >
       {description}
@@ -117,7 +117,7 @@ const Card: React.FC<CardProps> = ({
           textColor="text-gray-700"
           className="px-10 py-4 flex items-center justify-center"
         >
-          Apply Now{" "}
+          Apply Now{' '}
           <ArrowUpRight className="ml-4 bg-gray-800 text-white size-8 rounded-full" />
         </Button>
       </div>
@@ -128,7 +128,7 @@ const Card: React.FC<CardProps> = ({
 const CareerPage: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleExpanded = () => setIsExpanded(!isExpanded);
+  // const toggleExpanded = () => setIsExpanded(!isExpanded);
 
   return (
     <div className="bg-[#131313]">

@@ -1,20 +1,20 @@
-import NotFound from "@/app/not-found";
-import { fetchApi } from "@/utils/api";
-import { Metadata } from "next";
-import Images from "../custome-ui/Images";
-import Socials from "../custome-ui/Socials";
-import Biography from "../custome-ui/Biography";
-import Carousel from "../custome-ui/Carousel";
-import Image from "next/image";
+import NotFound from '@/app/not-found';
+import { fetchApi } from '@/utils/api';
+import { Metadata } from 'next';
+import Images from '../custome-ui/Images';
+import Socials from '../custome-ui/Socials';
+import Biography from '../custome-ui/Biography';
+import Carousel from '../custome-ui/Carousel';
+import Image from 'next/image';
 import {
   ArrowRight,
   FacebookIcon,
   Instagram,
   LinkedinIcon,
   X,
-} from "lucide-react";
-import TriangleLoader from "../custome-ui/Loader";
-import Link from "next/link";
+} from 'lucide-react';
+import TriangleLoader from '../custome-ui/Loader';
+import Link from 'next/link';
 
 // Props Type
 type Props = {
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const TalentPage = async ({ params }: Props) => {
-  const id = Number(params);
+  const id = Number(params.id);
 
   try {
     const talent: Talent = await fetchApi(`talents/${id}`);
@@ -55,15 +55,15 @@ const TalentPage = async ({ params }: Props) => {
     if (!talent) return <NotFound />;
 
     const attributes = [
-      { key: "Eye Color", value: talent.eye_color },
-      { key: "Hair", value: talent.hair },
-      { key: "Height", value: talent.height },
-      { key: "Dietary Requirements", value: talent.dietary_requirements },
+      { key: 'Eye Color', value: talent.eye_color },
+      { key: 'Hair', value: talent.hair },
+      { key: 'Height', value: talent.height },
+      { key: 'Dietary Requirements', value: talent.dietary_requirements },
     ];
 
     const groupedWorks = talent.works.reduce(
-      (acc: Record<string, Talent["works"]>, work) => {
-        const categoryTitle = work.category?.[0]?.title || "Uncategorized";
+      (acc: Record<string, Talent['works']>, work) => {
+        const categoryTitle = work.category?.[0]?.title || 'Uncategorized';
 
         if (!acc[categoryTitle]) {
           acc[categoryTitle] = [];
@@ -100,7 +100,10 @@ const TalentPage = async ({ params }: Props) => {
                   <FacebookIcon />
                 </Socials>
               </div>
-              <Link href={`/form/${id}`} className="flex gap-4 px-6 py-2 md:px-8 md:py-3 border rounded-full hover:bg-gray-800 hover:text-white transition">
+              <Link
+                href={`/form/${id}`}
+                className="flex gap-4 px-6 py-2 md:px-8 md:py-3 border rounded-full hover:bg-gray-800 hover:text-white transition"
+              >
                 BOOK THIS TALENT <ArrowRight className="ml-2" />
               </Link>
             </div>
@@ -217,7 +220,7 @@ const TalentPage = async ({ params }: Props) => {
       </div>
     );
   } catch (error) {
-    console.error("Error fetching talent data:", error);
+    console.error('Error fetching talent data:', error);
     return (
       <div className="flex justify-center items-center min-h-screen text-center">
         <div>

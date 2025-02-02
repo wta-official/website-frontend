@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import Expandable from "@/components/custome-ui/Expandable";
-import Images from "@/components/custome-ui/Images";
-import Image from "next/image";
-import { useState } from "react";
+import Expandable from '@/components/custome-ui/Expandable';
+import Images from '@/components/custome-ui/Images';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const ServicesPage = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded);
-  };
+  // const toggleExpanded = () => {
+  //   setIsExpanded(!isExpanded);
+  // };
   return (
     <div>
       <Images imageUrl="/images/services/image1.png">
