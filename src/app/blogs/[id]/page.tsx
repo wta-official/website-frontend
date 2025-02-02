@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 import React, { Suspense } from 'react';
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await params;
   return {
     title: `Blogs: ${resolvedParams.id}`,
   };
@@ -52,7 +52,8 @@ const formatContent = (content: string): string => {
 
 const Blog = async ({ params }: Props) => {
   try {
-    const blog = await fetchApi(`blogs/${params.id}`);
+    const resolvedParams = await params;
+    const blog = await fetchApi(`blogs/${resolvedParams.id}`);
 
     console.log('hello0');
     return (
