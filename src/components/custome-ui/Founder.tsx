@@ -12,7 +12,7 @@ const Founder = () => {
       </h1>
 
       {/* Grid Layout */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 border"> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {founders.map((founder, index) => (
           <Link
             key={index}
@@ -29,13 +29,13 @@ const Founder = () => {
                 alt={founder.name || "Founder image"}
                 width={10000}
                 height={10000}
-                className="h-full object-cover transform scale-105 group-hover:scale-100 group-hover:translate-y-0 transition duration-500"
+                className="h-auto object-contain transform scale-105 group-hover:scale-100 group-hover:translate-y-0 transition duration-500"
               />
             </div>
 
             {/* Founder Details */}
-            <div className="p-4 sm:p-5 md:p-6 w-full flex justify-between items-center">
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold truncate">
+            <div className="p-2 md:p-4 w-full flex justify-between items-center">
+              <p className="text-lg sm:text-xl md:text-xl lg:text-2xl font-semibold truncate">
                 {founder.name || "Unknown"}
               </p>
               <div className="flex items-center space-x-2">
@@ -47,7 +47,7 @@ const Founder = () => {
             </div>
           </Link>
         ))}
-      {/* </div> */}
+      </div>
     </div>
   );
 };

@@ -9,6 +9,8 @@ const Header = () => {
   const url = usePathname();
   const home = "/";
 
+  const isFormPage = Boolean((url.split("/")).includes('form'));
+  console.log(isFormPage)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -23,7 +25,7 @@ const Header = () => {
     <header
       className={clsx(
         "transition-all duration-300 ease-in-out fixed top-0 left-0 w-full z-50",
-        url !== home ? "border-b border-[#474747]" : "bg-[#202020]",
+        url === home || isFormPage ? "bg-[#202020]" : "border-b border-[#474747]" ,
         "bg-opacity-70 backdrop-blur-sm shadow-md"
       )}
     >

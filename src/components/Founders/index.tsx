@@ -24,13 +24,11 @@ const FounderPage = () => {
       <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
         <Image
           src={
-            founder.name === "Taiwo Adeyemi"
-              ? "/images/founders/taiwo.png"
-              : founder.image
+           founder.image
           }
           alt={founder.name}
           fill
-          className="object-cover"
+          className="object-cover object-top"
         />
         {/* Text Overlay */}
         <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-10 lg:p-16">
