@@ -18,7 +18,7 @@ interface Blog {
   id: string;
   title: string;
   description: string;
-  date: string;
+  created_at: string;
   author: string;
   image: string;
 }
@@ -66,7 +66,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogs, totalPages }) => {
             <div className="flex-grow w-full flex flex-col justify-end px-4 sm:px-6 md:px-12 lg:px-20 py-6">
               <div className="md:mb-6 space-y-2">
                 <p className="space-x-2 text-sm md:text-base lg:text-lg text-gray-300">
-                  <span>{formatDate(paginatedBlogs[0].date)}</span>
+                  <span>{formatDate(paginatedBlogs[0].created_at)}</span>
                   <span>.</span>
                   <span>{paginatedBlogs[0].author}</span>
                 </p>
@@ -97,7 +97,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogs, totalPages }) => {
             </div>
             <div className="my-4 space-y-2">
               <p className="space-x-2 text-xs sm:text-sm text-gray-300">
-                <span>{post.date}</span>
+                <span>{formatDate(post.created_at)}</span>
                 <span>.</span>
                 <span>{post.author}</span>
               </p>

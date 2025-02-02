@@ -101,7 +101,7 @@ const TalentPage = async ({ params }: Props) => {
                 </Socials>
               </div>
               <Link href={`/form/${id}`} className="flex gap-4 px-6 py-2 md:px-8 md:py-3 border rounded-full hover:bg-gray-800 hover:text-white transition">
-                BOOK THIS ARTIST <ArrowRight className="ml-2" />
+                BOOK THIS TALENT <ArrowRight className="ml-2" />
               </Link>
             </div>
           </div>
