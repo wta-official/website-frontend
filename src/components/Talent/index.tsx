@@ -17,8 +17,8 @@ import TriangleLoader from '../custome-ui/Loader';
 import Link from 'next/link';
 
 // Props Type
-type Props = {
-  params: { id?: string };
+type TalentProps = {
+  id?: string;
 };
 
 // Talent Type
@@ -32,7 +32,7 @@ type Talent = {
   height: string;
   dietary_requirements: string;
   instagram: string;
-  linkedin: string;
+  linkedIn: string;
   x: string;
   facebook: string;
   roles: string[];
@@ -40,18 +40,20 @@ type Talent = {
   works: { image: string; title: string; category?: { title: string }[] }[];
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const id = (await params).id;
   return {
-    title: `Talent: ${params.id}`,
+    title: `Talent: ${id}`,
   };
 }
 
-const TalentPage = async ({ params }: Props) => {
-  const id = Number(params.id);
-
+const TalentPage = async ({ id }: TalentProps) => {
   try {
     const talent: Talent = await fetchApi(`talents/${id}`);
-
     if (!talent) return <NotFound />;
 
     const attributes = [
@@ -90,7 +92,7 @@ const TalentPage = async ({ params }: Props) => {
                 <Socials socialLinks={talent.instagram}>
                   <Instagram />
                 </Socials>
-                <Socials socialLinks={talent.linkedin}>
+                <Socials socialLinks={talent.linkedIn}>
                   <LinkedinIcon />
                 </Socials>
                 <Socials socialLinks={talent.x}>
