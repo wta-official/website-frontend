@@ -1,26 +1,33 @@
-"use client";
-import "../../../src/app/globals.css";
+'use client';
 
-import { motion } from "framer-motion";
+import React from 'react';
+import '../../../src/app/globals.css';
 
-const Carousel = ({children}) => (
-    <div className="malgods-font relative w-full overflow-hidden">
+import { motion } from 'framer-motion';
+
+const Carousel = ({ children }: { children: React.ReactNode }) => (
+  <div className="malgods-font relative w-full overflow-hidden">
+    <motion.div
+      className="whitespace-nowrap"
+      animate={{ x: ['100%', '-100%'] }}
+      transition={{
+        x: {
+          repeat: Infinity,
+          repeatType: 'loop',
+          duration: 15,
+          ease: 'easeInOut',
+        },
+      }}
+    >
       <motion.div
-        className="whitespace-nowrap"
-        animate={{ x: ["100%", "-100%"] }}
-        transition={{
-          x: { repeat: Infinity, repeatType: "loop", duration: 15, ease: "easeInOut" },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: 'easeInOut' }}
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        >
-          {children}
-        </motion.div>
+        {children}
       </motion.div>
-    </div>
-  );
+    </motion.div>
+  </div>
+);
 
 export default Carousel;

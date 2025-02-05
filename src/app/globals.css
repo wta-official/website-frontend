@@ -36,6 +36,8 @@ body {
 .history-bg {
   background: linear-gradient(180deg, #1a1a1a 100%, #2b2b2b 80%);
 }
+
+
 }
 
 
@@ -79,3 +81,5 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+

@@ -7,10 +7,7 @@ const MissionAndVision = () => {
       <div className="flex flex-col lg:flex-row gap-8 lg:h-[500px]">
         <div className="group flex-1 flex flex-col-reverse md:flex-col px-4 sm:px-6 md:px-10 py-6 bg-black">
           <p className="text-sm sm:text-base md:text-lg leading-6 sm:leading-8 md:leading-[40px]">
-            At WTA, our vision is to revolutionize talent management in Nigeria.
-            We aspire to cultivate an environment where every individual's
-            unique potential is recognized, cultivated, and empowered with the
-            resources needed for unparalleled success.
+          We envision building an agency that stands shoulder-to-shoulder with the best in the world, showcasing the unparalleled creativity and brilliance of African talents. Our goal is to create a platform that not only competes on a global scale but also amplifies the unique voices and stories that define Africa's rich talent pool.
           </p>
           <div
             className="flex flex-col flex-1 overflow-hidden mt-4 md:mt-10"
@@ -42,13 +39,8 @@ const MissionAndVision = () => {
       <div className="flex flex-col-reverse md:flex-col lg:flex-row gap-8 lg:h-[500px] mt-8 bg-black">
         <div className="flex items-center flex-1 px-4 sm:px-6 md:px-10 py-6">
           <p className="text-sm sm:text-base md:text-lg leading-6 sm:leading-8 md:leading-[40px]">
-            We are dedicated to empowering Nigerian talents, enabling them to
-            realize their fullest potential through innovative and tailored
-            solutions that bridge the divide between skill and opportunity. Our
-            mission is to cultivate a vibrant ecosystem where individuals are
-            nurtured, honed, and seamlessly connected with the ideal platforms,
-            thereby fostering sustainable growth and triumph in Nigeria's
-            dynamic and multifaceted industries.
+          At its core, our mission is to create a robust and dynamic ecosystem that serves as a one-stop hub for talents and creative leaders to thrive. We envision a space where individuals with ambition and potential can seamlessly connect with the right people, groundbreaking projects, and transformative platforms that propel them toward achieving their most ambitious dreams.
+
           </p>
         </div>
         <div

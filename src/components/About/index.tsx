@@ -1,19 +1,12 @@
 "use client";
 import Founder from "@/components/custome-ui/Founder";
-import History from "@/components/custome-ui/History";
+// import History from "@/components/custome-ui/History";
 import MissionAndVision from "@/components/custome-ui/MissionAndVision";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
 import Expandable from "../custome-ui/Expandable";
 
 const About = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
     <main className="bg-[#151515]">
       {/* Hero Section */}
@@ -39,33 +32,25 @@ const About = () => {
       {/* Intro Section */}
 
       <Expandable
-        title="Where Talent Meets Opportunity"
-        firstPart=" Welcome to Working Talent Agency, where we believe in the power of
-            talent to transform and inspire. Our agency is dedicated to
-            discovering, nurturing, and representing exceptional individuals in
-            the fields of acting, music, and modeling."
-        expandedPart="  With a deep commitment to excellence, we connect our talent with
-                unparalleled opportunities that elevate their careers to new
-                heights. At Working Talent Agency, we’re reshaping the landscape
-                of talent management in Nigeria. Grounded in a steadfast
-                commitment to excellence and fueled by passion for cultivating
-                potential, we specialize in discovering, nurturing, and
-                propelling the most promising stars to the forefront."
+        title="We are the nexus of talent and opportunity"
+        firstPart="Founded by three passionate partners - Demi Banwo, Adesegun Adetoro and Adeyemi Taiwo - with nearly 20 years of combined experience in the film and entertainment industry in Nigeria, Working Talent Agency believes strongly in the power of talent to transform and inspire popular culture. Our agency is the reputable go-to for discovering, nurturing, and representing exceptional individuals in show business."
+        expandedPart="
+With a deep commitment to career development, WTA clients are connected to unparalleled opportunities that advance their creative careers to the pinnacle. We represent talents who inspire culture and shape the creator economy. From artists to athletes and filmmakers, our expertise and comprehensive resources help talent and businesses thrive with confidence.
+
+We are reshaping the future of talent management in Nigeria by forging meaningful partnerships with our clients to bring their ambitions to reality. Our approach goes beyond conventional representation—we immerse ourselves in their goals, combining their unique visions with our extensive industry knowledge to craft tailored strategies that deliver tangible, trusted results. Through this collaborative effort, we empower new and established stars to rise to prominence, equipping them with the resources, expertise, and opportunities they need to thrive. Together, we are building a new standard of excellence that drives careers forward and inspires lasting success."
       />
 
       {/* History Section */}
-      <History />
+      {/* <History /> */}
 
       {/* Image Section */}
       <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
-
-      <Image
-        src="/images/about/image2.png"
-        alt="Services Banner"
-        layout="fill"
-        objectFit="cover"
-        className="rounded-md"
-      />
+        <Image
+          src="/images/about/image2.png"
+          alt="Services Banner"
+          fill
+          className="rounded-md object-cover"
+        />
       </div>
 
       {/* Founder Section */}

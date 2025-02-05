@@ -1,16 +1,10 @@
-import { ArrowRight } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-
-interface TalentInfo {
-  id: number;
-  name: string;
-  positions: string[];
-  image: StaticImageData
-}
+import { Talent } from '@/data/data';
+import { ArrowRight } from 'lucide-react';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 interface TalentsCardProps {
-  talentInfo: TalentInfo;
+  talentInfo: Talent;
 }
 
 const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
@@ -19,9 +13,10 @@ const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
       className="w-full sm:max-w-[45%] lg:max-w-[30%] snap-start transition-all duration-300 rounded-lg text-white shadow-md group"
       role="article"
     >
-      <Link  href={`/talents/${encodeURIComponent(
-              talentInfo.name.split(" ").join("").toLowerCase()
-            )}`} aria-label={`View details for ${talentInfo.name}`}>
+      <Link
+        href={`/talents/${talentInfo.id}`}
+        aria-label={`View details for ${talentInfo.name}`}
+      >
         {/* Image Section */}
         <Image
           src={talentInfo.image}
@@ -40,14 +35,17 @@ const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
           {/* Positions */}
           <div className="flex justify-between items-center">
             <div className="flex flex-wrap space-x-2 items-center">
-              {talentInfo.positions.map((position, index) => (
-                <p key={index}>
-                  {index !== 0 && <span className="mr-2">•</span>}
+              <p>
+                <span className="text-sm md:text-base opacity-85">
+                  {talentInfo.roles[0]}
+                </span>
+                <span className="mr-2"> •</span>
+                {talentInfo.roles[1] && (
                   <span className="text-sm md:text-base opacity-85">
-                    {position}
+                    {talentInfo.roles[1]}
                   </span>
-                </p>
-              ))}
+                )}
+              </p>
             </div>
 
             {/* Arrow Icon */}

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,39 +8,25 @@ import clsx from "clsx";
 const Header = () => {
   const url = usePathname();
   const home = "/";
-  // const [isSticky, setIsSticky] = useState(false);
+
+  const isFormPage = Boolean((url.split("/")).includes('form'));
+  console.log(isFormPage)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { href: "/about", label: "About" },
-    { href: "/career", label: "Career" },
-    { href: "/talents", label: "Our Talents" },
-    { href: "/services", label: "Services" },
-    { href: "/blog", label: "Blog" },
+    // { href: "/career", label: "Career" },
+    { href: "/talents", label: "Talents" },
+    // { href: "/services", label: "Services" },
+    { href: "/blogs", label: "Blog" },
   ];
-
-  // Scroll handling for sticky header
-  // const handleScroll = () => {
-  //   if (window.scrollY > 100) {
-  //     setIsSticky(true);
-  //   } else {
-  //     setIsSticky(false);
-  //   }
-  // };
-
-  // // Attaching scroll event listener on mount and cleanup on unmount
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
 
   return (
     <header
       className={clsx(
         "transition-all duration-300 ease-in-out fixed top-0 left-0 w-full z-50",
-        url !== home ? "border-b border-[#474747]" : "bg-[#202020]",
-        "bg-opacity-70 backdrop-blur-sm shadow-md",
-        // isSticky ? "sticky" : "absolute"
+        url === home || isFormPage ? "bg-[#202020]" : "border-b border-[#474747]" ,
+        "bg-opacity-70 backdrop-blur-sm shadow-md"
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-6 relative">
@@ -76,8 +62,8 @@ const Header = () => {
         {/* Mobile Menu Drawer */}
         <div
           className={clsx(
-            isMobileMenuOpen ? "translate-x-0 fixed top-0 right-0 w-2/3 md:w-1/3 h-[100vh] bg-[#202020] backdrop-blur-md transform transition-transform duration-300 ease-in-out" : "hidden translate-x-full",
-            "z-40"
+            "fixed top-0 right-0 h-[100vh] w-2/3 md:w-1/3 bg-[#202020] bg-opacity-90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out transform",
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
           <div className="flex justify-end p-6">
@@ -97,7 +83,7 @@ const Header = () => {
               </svg>
             </button>
           </div>
-          <nav>
+          <nav className="-mt-20 flex-grow flex items-center justify-center h-full">
             <ul className="flex flex-col items-center space-y-6 text-lg text-white">
               {navLinks.map((link) => (
                 <li key={link.href}>
