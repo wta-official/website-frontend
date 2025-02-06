@@ -23,7 +23,7 @@ const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
           alt={`${talentInfo.name + talentInfo.id}`}
           width={500}
           height={500}
-          className="w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-80 rounded-t-lg"
+          className="w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-80 rounded-t-lg min-h-40"
           priority
         />
 

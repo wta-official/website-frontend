@@ -14,7 +14,7 @@ const CONTACT_DETAILS = [
 ];
 
 const QUICK_LINKS = [
-  { href: "/our-talents", label: "Our Talents" },
+  { href: "/talents", label: "Our Talents" },
   { href: "/about", label: "About Us" },
   { href: "/service", label: "Services" },
   { href: "/blog", label: "Blog" },

@@ -14,13 +14,46 @@ const Blog = async () => {
   try {
     // Fetching blog data
     const blogs = await fetchApi(`blogs/?page=${page}`);
-  const totalPages = blogs.count % 10 === 0 ? Math.floor(blogs.count / 10) : Math.floor(blogs.count / 10) + 1;
-
+    const totalPages =
+      blogs.count % 10 === 0
+        ? Math.floor(blogs.count / 10)
+        : Math.floor(blogs.count / 10) + 1;
 
     // Handle case where blogs data is empty or not found
     if (!blogs || blogs.results.length === 0) {
       console.log("No blogs found.");
-      return <NotFound />;
+      return (
+        <div className="min-h-screen bg-[#1A1A1A] flex items-center justify-center text-white">
+          <div className="text-center">
+            {/* Icon */}
+            <div className="mx-auto mb-4 flex justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-16 w-16 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-2xl font-bold mb-2">No Blogs Found</h1>
+
+            {/* Message */}
+            <p className="text-gray-400">
+              It looks like there are no blogs available at the moment. Check
+              back later!
+            </p>
+          </div>
+        </div>
+      );
     }
 
     return (
