@@ -56,7 +56,7 @@ const SearchTalents = ({ talents }: { talents: Talent[] }) => {
       <AlphabetSearch onFilter={(letter) => setSearchQuery(letter)} />
 
       {/* Talent Cards */}
-      <div className="mt-6 flex flex-wrap justify-center gap-10">
+      <div className="mt-6 flex flex-wrap gap-10">
         {filteredData.length > 0 ? (
           filteredData.map((talent, index) => (
             <TalentsCard key={index} talentInfo={talent} />

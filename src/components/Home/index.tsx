@@ -1,6 +1,5 @@
 import Hero from "@/components/custome-ui/Hero";
 import Image from "next/image";
-import Head from "next/head";
 // import FAQ from "@/components/custome-ui/FAQ";
 import News from "@/components/custome-ui/News";
 import WelcomeCarousel from "../custome-ui/WelcomeCarousel";
@@ -10,19 +9,8 @@ import { Suspense } from "react";
 import TriangleLoader from "../custome-ui/Loader";
 
 const Homepage = () => {
- 
   return (
     <>
-      <Head>
-        <title>The Working Talent Agency (WTA) - Home</title>
-        <meta
-          name="description"
-          content="Welcome to the realm of The Working Talent Agency (WTA), where Africa’s brightest stars find their home. Explore our talents, services, and latest news!"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="bg-[#151515] text-gray-200 w-full">
         {/* Hero Section */}
         <Hero />
@@ -44,7 +32,7 @@ const Homepage = () => {
         <TalentsDisplay />
 
         {/* Services Section */}
-      <Services />
+        <Services />
 
         {/* Highlight Image */}
         <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
@@ -68,9 +56,9 @@ const Homepage = () => {
               />
             </div>
           }
-        > 
+        >
           <News />
-         </Suspense>
+        </Suspense>
 
         {/* FAQ Section */}
         {/* <div className="pb-10 sm:pb-20 lg:pb-32">
