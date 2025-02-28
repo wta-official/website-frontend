@@ -1,12 +1,12 @@
-import BlogPage from "@/components/Blog";
-import React, { Suspense } from "react";
-import { Metadata } from "next";
-import NotFound from "../not-found";
-import { fetchApi } from "@/utils/api";
-import TriangleLoader from "@/components/custome-ui/Loader";
+import BlogPage from '@/components/Blog';
+import React, { Suspense } from 'react';
+import { Metadata } from 'next';
+import NotFound from '../not-found';
+import { fetchApi } from '@/utils/api';
+import TriangleLoader from '@/components/custome-ui/Loader';
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: 'Blog',
 };
 
 const Blog = async () => {
@@ -21,7 +21,7 @@ const Blog = async () => {
 
     // Handle case where blogs data is empty or not found
     if (!blogs || blogs.results.length === 0) {
-      console.log("No blogs found.");
+      console.log('No blogs found.');
       return (
         <div className="min-h-screen bg-[#1A1A1A] flex items-center justify-center text-white">
           <div className="text-center">
@@ -74,7 +74,7 @@ const Blog = async () => {
       </Suspense>
     );
   } catch (error) {
-    console.error("Error fetching blog data:", error);
+    console.error('Error fetching blog data:', error);
 
     // Render a user-friendly error message on failure
     return (
