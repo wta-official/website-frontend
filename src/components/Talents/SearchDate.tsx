@@ -1,14 +1,18 @@
-import { fetchApi } from '@/utils/api';
+import { BASE_URL, fetchApi } from '@/utils/api';
 import { Suspense } from 'react';
 import TriangleLoader from '../custome-ui/Loader';
 import SearchTalents from '../custome-ui/SearchTalents';
 
-const SearchDate = async () => {
+export default async function SearchDate() {
   let talents;
 
   try {
     // Fetch talents data
-    talents = await fetchApi('talents/', {});
+    const response = await fetch(`${BASE_URL}/talents/`, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    talents = await response.json();
   } catch (error) {
     console.error('Error fetching data:', error);
     return (
@@ -46,6 +50,6 @@ const SearchDate = async () => {
       <SearchTalents talents={talents.results} />
     </Suspense>
   );
-};
+}
 
-export default SearchDate;
+// export default SearchDate;
