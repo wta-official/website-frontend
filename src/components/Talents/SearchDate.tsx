@@ -1,4 +1,4 @@
-import { BASE_URL, fetchApi } from '@/utils/api';
+import { BASE_URL } from '@/utils/api';
 import { Suspense } from 'react';
 import TriangleLoader from '../custome-ui/Loader';
 import SearchTalents from '../custome-ui/SearchTalents';

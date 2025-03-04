@@ -1,23 +1,23 @@
-"use client";
-import Founder from "@/components/custome-ui/Founder";
+'use client';
+import Founder from '@/components/custome-ui/Founder';
 // import History from "@/components/custome-ui/History";
-import MissionAndVision from "@/components/custome-ui/MissionAndVision";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Expandable from "../custome-ui/Expandable";
+import MissionAndVision from '@/components/custome-ui/MissionAndVision';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Expandable from '../custome-ui/Expandable';
 
 const About = () => {
   return (
     <main className="bg-[#151515]">
       {/* Hero Section */}
       <section
-        className="bg-[url('/images/aboutUsHero.png')] bg-cover bg-top w-full min-h-[300px] md:min-h-[500px] lg:min-h-[800px] flex items-center md:items-end justify-center md:justify-start px-4 md:px-12 lg:px-20 text-white z-10"
+        className="bg-[url('/images/founders/allfounders.jpg')] bg-cover bg-top w-full min-h-[400px] md:min-h-[700px] lg:max-h-screen flex items-center md:items-end justify-center md:justify-start px-4 md:px-12 lg:px-20 text-white z-10"
         aria-labelledby="about-hero-heading"
       >
         <motion.div
           initial={{ opacity: 0, y: 1 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
           className="text-center md:text-left"
         >
           <h1
@@ -46,10 +46,10 @@ We are reshaping the future of talent management in Nigeria by forging meaningfu
       {/* Image Section */}
       <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
         <Image
-          src="/images/about/image2.png"
+          src="/images/about/wtaabout3.jpg"
           alt="Services Banner"
           fill
-          className="rounded-md object-cover"
+          className="rounded-md object-contain"
         />
       </div>
 

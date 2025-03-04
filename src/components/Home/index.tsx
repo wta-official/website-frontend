@@ -1,12 +1,12 @@
-import Hero from "@/components/custome-ui/Hero";
-import Image from "next/image";
+import Hero from '@/components/custome-ui/Hero';
+import Image from 'next/image';
 // import FAQ from "@/components/custome-ui/FAQ";
-import News from "@/components/custome-ui/News";
-import WelcomeCarousel from "../custome-ui/WelcomeCarousel";
-import TalentsDisplay from "../custome-ui/TalentsDisplay";
-import Services from "../custome-ui/Services";
-import { Suspense } from "react";
-import TriangleLoader from "../custome-ui/Loader";
+import News from '@/components/custome-ui/News';
+import WelcomeCarousel from '../custome-ui/WelcomeCarousel';
+import TalentsDisplay from '../custome-ui/TalentsDisplay';
+import Services from '../custome-ui/Services';
+import { Suspense } from 'react';
+import TriangleLoader from '../custome-ui/Loader';
 
 const Homepage = () => {
   return (
@@ -37,10 +37,10 @@ const Homepage = () => {
         {/* Highlight Image */}
         <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
           <Image
-            src="/images/image2.png"
+            src="/images/about/wtaabout.jpg"
             alt="Services Banner"
             fill
-            className="rounded-md object-cover"
+            className="rounded-md object-contain object-center"
           />
         </div>
 

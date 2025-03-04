@@ -1,32 +1,34 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 const Header = () => {
   const url = usePathname();
-  const home = "/";
+  const home = '/';
 
-  const isFormPage = Boolean((url.split("/")).includes('form'));
-  console.log(isFormPage)
+  const isFormPage = Boolean(url.split('/').includes('form'));
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/about", label: "About" },
+    { href: '/about', label: 'About' },
     // { href: "/career", label: "Career" },
-    { href: "/talents", label: "Talents" },
+    { href: '/talents', label: 'Talents' },
     // { href: "/services", label: "Services" },
-    { href: "/blogs", label: "Blog" },
+    { href: '/blogs', label: 'Blog' },
   ];
 
   return (
     <header
       className={clsx(
-        "transition-all duration-300 ease-in-out fixed top-0 left-0 w-full z-50",
-        url === home || isFormPage ? "bg-[#202020]" : "border-b border-[#474747]" ,
-        "bg-opacity-70 backdrop-blur-sm shadow-md"
+        'transition-all duration-300 ease-in-out fixed top-0 left-0 w-full z-50',
+        url === home || isFormPage
+          ? 'bg-[#202020]'
+          : 'border-b border-[#474747]',
+        'bg-opacity-70 backdrop-blur-sm shadow-md'
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-6 relative">
@@ -55,15 +57,20 @@ const Header = () => {
             stroke="currentColor"
             className="h-6 w-6"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
 
         {/* Mobile Menu Drawer */}
         <div
           className={clsx(
-            "fixed top-0 right-0 h-[100vh] w-2/3 md:w-1/3 bg-[#202020] bg-opacity-90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out transform",
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            'fixed top-0 right-0 h-[100vh] w-2/3 md:w-1/3 bg-[#202020] bg-opacity-90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out transform',
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
           <div className="flex justify-end p-6">
@@ -79,7 +86,12 @@ const Header = () => {
                 stroke="currentColor"
                 className="h-6 w-6"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>

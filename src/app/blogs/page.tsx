@@ -1,8 +1,7 @@
 import BlogPage from '@/components/Blog';
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
-import NotFound from '../not-found';
-import { fetchApi } from '@/utils/api';
+import { BASE_URL } from '@/utils/api';
 import TriangleLoader from '@/components/custome-ui/Loader';
 
 export const metadata: Metadata = {
@@ -13,7 +12,11 @@ const Blog = async () => {
   const page = 1;
   try {
     // Fetching blog data
-    const blogs = await fetchApi(`blogs/?page=${page}`);
+    const response = await fetch(`${BASE_URL}/blogs/?page=${page}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const blogs = await response.json();
     const totalPages =
       blogs.count % 10 === 0
         ? Math.floor(blogs.count / 10)
