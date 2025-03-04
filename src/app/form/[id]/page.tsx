@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
+import { Input } from '@/components/ui/input';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import axios from "axios";
-import { format } from "date-fns";
-import { ArrowRight, CalendarIcon } from "lucide-react";
-import { useParams } from "next/navigation";
-import React, { useState, ChangeEvent, FormEvent } from "react";
+} from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+import axios from 'axios';
+import { format } from 'date-fns';
+import { ArrowRight, CalendarIcon } from 'lucide-react';
+import { useParams } from 'next/navigation';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 // Define the type for form data
 interface FormData {
@@ -34,13 +34,13 @@ interface InputFieldProps {
 
 // Component for Input Fields
 const InputField: React.FC<InputFieldProps> = ({ label, value, onChange }) => {
-  const id = label.toLowerCase().replace(/\s+/g, "-");
+  const id = label.toLowerCase().replace(/\s+/g, '-');
   return (
     <div className="relative min-w-96">
       <label
         htmlFor={id}
         className={`absolute left-2 top-0 h-full flex items-center text-gray-500 transition-all duration-200 ${
-          value ? "text-sm -translate-y-8" : "text-base translate-y-0"
+          value ? 'text-sm -translate-y-8' : 'text-base translate-y-0'
         }`}
       >
         {label}
@@ -70,13 +70,13 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
   value,
   onChange,
 }) => {
-  const id = label.toLowerCase().replace(/\s+/g, "-");
+  const id = label.toLowerCase().replace(/\s+/g, '-');
   return (
     <div className="relative min-w-96">
       <label
         htmlFor={id}
         className={`absolute left-2 top-0 flex items-center text-gray-500 transition-all duration-200 ${
-          value ? "text-sm -translate-y-6" : "text-base translate-y-0"
+          value ? 'text-sm -translate-y-6' : 'text-base translate-y-0'
         }`}
       >
         {label}
@@ -97,14 +97,13 @@ const Form: React.FC = () => {
   const { id } = params;
 
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    event: "",
-    date: "",
-    note: "",
+    name: '',
+    email: '',
+    phone: '',
+    event: '',
+    date: '',
+    note: '',
   });
-  console.log(process.env.NEXT_PUBLIC_WTA_API_URL);
 
   const handleChange =
     (field: keyof FormData) =>
@@ -117,7 +116,7 @@ const Form: React.FC = () => {
 
     // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
-      alert("Please fill out all required fields.");
+      alert('Please fill out all required fields.');
       return;
     }
 
@@ -141,31 +140,31 @@ const Form: React.FC = () => {
         },
         {
           headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
         }
       );
-      console.log("Booking successful:", response.data);
-      alert("Booking submitted successfully!");
+      console.log('Booking successful:', response.data);
+      alert('Booking submitted successfully!');
     } catch (error: any) {
       console.log(error.response);
       if (axios.isAxiosError(error) && error.response) {
         const status = error.response.status;
         if (status >= 400 && status < 500) {
-          alert(error.response.data?.event_date || "A client error occurred.");
+          alert(error.response.data?.event_date || 'A client error occurred.');
         }
       } else {
-        alert("An error occurred while submitting the booking.");
+        alert('An error occurred while submitting the booking.');
       }
     }
   };
 
   const formInputs = [
-    { label: "Full Name", field: "name" },
-    { label: "Email Address", field: "email" },
-    { label: "Phone Number", field: "phone" },
-    { label: "Event Name", field: "event" },
+    { label: 'Full Name', field: 'name' },
+    { label: 'Email Address', field: 'email' },
+    { label: 'Phone Number', field: 'phone' },
+    { label: 'Event Name', field: 'event' },
   ];
 
   return (
@@ -184,7 +183,7 @@ const Form: React.FC = () => {
             <InputField
               key={field}
               label={label}
-              value={formData[field as keyof FormData] || ""}
+              value={formData[field as keyof FormData] || ''}
               onChange={handleChange(field as keyof FormData)}
             />
           ))}
@@ -195,8 +194,8 @@ const Form: React.FC = () => {
               htmlFor="date"
               className={`absolute left-2 top-0 flex items-center text-gray-500 transition-all duration-200 ${
                 formData.date
-                  ? "text-sm -translate-y-4 inline-block"
-                  : "text-base translate-y-0 hidden"
+                  ? 'text-sm -translate-y-4 inline-block'
+                  : 'text-base translate-y-0 hidden'
               }`}
             >
               Date
@@ -206,12 +205,12 @@ const Form: React.FC = () => {
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full px-3 py-6 text-left font-normal text-muted-foreground hover:bg-transparent rounded-md border",
-                    !formData.date && "text-muted-foreground"
+                    'w-full px-3 py-6 text-left font-normal text-muted-foreground hover:bg-transparent rounded-md border',
+                    !formData.date && 'text-muted-foreground'
                   )}
                 >
                   {formData.date ? (
-                    format(new Date(formData.date), "PPP")
+                    format(new Date(formData.date), 'PPP')
                   ) : (
                     <span className="text-gray-600">Pick a date</span>
                   )}
@@ -225,10 +224,10 @@ const Form: React.FC = () => {
                   onSelect={(date) =>
                     setFormData((prev) => ({
                       ...prev,
-                      date: date ? format(date, "yyyy-MM-dd") : "",
+                      date: date ? format(date, 'yyyy-MM-dd') : '',
                     }))
                   }
-                  disabled={(date) => date < new Date("1900-01-01")} // Only disables dates before 1900
+                  disabled={(date) => date < new Date('1900-01-01')} // Only disables dates before 1900
                 />
               </PopoverContent>
             </Popover>
@@ -236,8 +235,8 @@ const Form: React.FC = () => {
 
           <TextAreaField
             label="Additional Note"
-            value={formData.note || ""}
-            onChange={handleChange("note")}
+            value={formData.note || ''}
+            onChange={handleChange('note')}
           />
         </fieldset>
 

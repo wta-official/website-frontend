@@ -1,5 +1,5 @@
 import NotFound from '@/app/not-found';
-import { fetchApi } from '@/utils/api';
+import { BASE_URL } from '@/utils/api';
 import { Metadata } from 'next';
 import Images from '../custome-ui/Images';
 import Socials from '../custome-ui/Socials';
@@ -53,7 +53,13 @@ export async function generateMetadata({
 
 const TalentPage = async ({ id }: TalentProps) => {
   try {
-    const talent: Talent = await fetchApi(`talents/${id}`);
+    const response = await fetch(`${BASE_URL}/talents/${id}`, {
+      cache: 'no-store',
+    });
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const talent: Talent = await response.json();
     if (!talent) return <NotFound />;
 
     const attributes = [

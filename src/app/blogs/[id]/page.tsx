@@ -1,6 +1,6 @@
 import Images from '@/components/custome-ui/Images';
 import TriangleLoader from '@/components/custome-ui/Loader';
-import { fetchApi } from '@/utils/api';
+import { BASE_URL } from '@/utils/api';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
 
@@ -53,9 +53,13 @@ const formatContent = (content: string): string => {
 const Blog = async ({ params }: Props) => {
   try {
     const resolvedParams = await params;
-    const blog = await fetchApi(`blogs/${resolvedParams.id}`);
 
-    console.log('hello0');
+    const response = await fetch(`${BASE_URL}/blogs/${resolvedParams.id}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const blog = await response.json();
+
     return (
       <Suspense
         fallback={
