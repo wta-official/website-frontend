@@ -206,7 +206,7 @@ const TalentPage = async ({ id }: TalentProps) => {
           {groupedWorksArray.map(([category, works], index) => (
             <div key={index} className="p-6 rounded-lg shadow-lg w-full">
               <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                {`Filmography (${category})`}
+                {category}
               </h2>
               <hr className="border-t mb-6" />
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
