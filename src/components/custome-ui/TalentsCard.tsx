@@ -18,12 +18,20 @@ const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
         aria-label={`View details for ${talentInfo.name}`}
       >
         {/* Image Section */}
-        <Image
+        {/* <Image
           src={talentInfo.image}
           alt={`${talentInfo.name + talentInfo.id}`}
           width={500}
           height={500}
           className="w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-80 rounded-t-lg min-h-40"
+          priority
+        /> */}
+        <Image
+          src={talentInfo.image}
+          alt={`${talentInfo.name + talentInfo.id}`}
+          width={500}
+          height={400}
+          className="w-full h-[400px] object-cover rounded-t-lg group-hover:scale-105 group-hover:opacity-80 transition-all duration-300"
           priority
         />
 

@@ -244,7 +244,7 @@ const Form: React.FC = () => {
           type="submit"
           className="bg-black text-white w-full p-6 mt-6 hover:bg-gray-800 transition duration-300 rounded-md"
         >
-          BOOK THIS ARTIST <ArrowRight />
+          BOOK THIS TALENT <ArrowRight />
         </Button>
       </form>
     </div>
