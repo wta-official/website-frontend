@@ -3,6 +3,8 @@ import TriangleLoader from '@/components/custome-ui/Loader';
 import { BASE_URL } from '@/utils/api';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -92,10 +94,16 @@ const Blog = async ({ params }: Props) => {
         </Images>
 
         <section className="prose prose-lg lg:prose-xl mx-auto p-10 md:p-16 lg:p-20">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {blog.content}
+          </ReactMarkdown>
+        </section>
+
+        {/* <section className="prose prose-lg lg:prose-xl mx-auto p-10 md:p-16 lg:p-20">
           <div
             dangerouslySetInnerHTML={{ __html: formatContent(blog.content) }}
           />
-        </section>
+        </section> */}
       </Suspense>
     );
   } catch (error) {

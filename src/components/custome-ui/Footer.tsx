@@ -1,31 +1,31 @@
-"use client";
-import "../../../src/app/globals.css";
-import Image from "next/image";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { Facebook, Instagram, Linkedin, X } from "lucide-react";
-import Carousel from "./Carousel";
+'use client';
+import '../../../src/app/globals.css';
+import Image from 'next/image';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import { Facebook, Instagram, Linkedin, X } from 'lucide-react';
+import Carousel from './Carousel';
 
 // Reusable constants for content
 const CONTACT_DETAILS = [
-  "08186010105, 08134491733",
-  "hello@workingtalentagency.com",
-  "48, Awolowo Road, Ikoyi Lagos",
+  '08186010105, 08134491733',
+  'hello@workingtalentagency.com',
+  '48, Awolowo Road, Ikoyi Lagos',
 ];
 
 const QUICK_LINKS = [
-  { href: "/talents", label: "Our Talents" },
-  { href: "/about", label: "About Us" },
-  { href: "/service", label: "Services" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact Us" },
+  { href: '/talents', label: 'Our Talents' },
+  { href: '/about', label: 'About Us' },
+  // { href: "/service", label: "Services" },
+  { href: '/blogs', label: 'Blog' },
+  // { href: "/contact", label: "Contact Us" },
 ];
 
 const SOCIAL_LINKS = [
-  { href: "/", ariaLabel: "Instagram", Icon: Instagram },
-  { href: "/", ariaLabel: "Facebook", Icon: Facebook },
-  { href: "/", ariaLabel: "Twitter", Icon: X },
-  { href: "/", ariaLabel: "LinkedIn", Icon: Linkedin },
+  { href: '/', ariaLabel: 'Instagram', Icon: Instagram },
+  { href: '/', ariaLabel: 'Facebook', Icon: Facebook },
+  { href: '/', ariaLabel: 'Twitter', Icon: X },
+  { href: '/', ariaLabel: 'LinkedIn', Icon: Linkedin },
 ];
 
 // Footer Component
@@ -42,7 +42,9 @@ const Footer = () => {
               width={42.53}
               height={42.53}
             />
-            <p className="font-bold text-xl lg:text-2xl">Working Talents Agency</p>
+            <p className="font-bold text-xl lg:text-2xl">
+              Working Talents Agency
+            </p>
           </div>
         </div>
 
@@ -63,15 +65,19 @@ const Footer = () => {
               </Button>
             </form>
           </div>
-          
 
           {/* Quick Links Section */}
           <div className="lg:w-[20%]">
-            <h3 className="font-bold text-xl lg:text-2xl mb-6 lg:mb-8">Quick Links</h3>
+            <h3 className="font-bold text-xl lg:text-2xl mb-6 lg:mb-8">
+              Quick Links
+            </h3>
             <ul className="flex flex-col gap-2">
               {QUICK_LINKS.map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="hover:underline text-sm lg:text-base">
+                  <Link
+                    href={href}
+                    className="hover:underline text-sm lg:text-base"
+                  >
                     {label}
                   </Link>
                 </li>
@@ -81,7 +87,9 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div className="lg:w-[20%]">
-            <h3 className="font-bold text-xl lg:text-2xl mb-6 lg:mb-8">Contact Us</h3>
+            <h3 className="font-bold text-xl lg:text-2xl mb-6 lg:mb-8">
+              Contact Us
+            </h3>
             {CONTACT_DETAILS.map((detail, index) => (
               <p key={index} className="text-sm lg:text-base mb-2">
                 {detail}
@@ -106,7 +114,9 @@ const Footer = () => {
       {/* Carousel Section */}
       <div className="mt-8 lg:mt-12">
         <Carousel>
-          <p className="leading-[326px] m-0 text-white text-[279px]">WORKING TALENT AGENCY</p>
+          <p className="leading-[326px] m-0 text-white text-[279px]">
+            WORKING TALENT AGENCY
+          </p>
         </Carousel>
       </div>
 
@@ -118,11 +128,17 @@ const Footer = () => {
         </p>
 
         <div className="flex flex-col lg:flex-row justify-center space-x-4 lg:space-x-10 mt-4 lg:mt-0">
-          <Link href="/privacy" className="hover:underline">PRIVACY POLICY</Link>
+          <Link href="/privacy" className="hover:underline">
+            PRIVACY POLICY
+          </Link>
+          {/* <span className="lg:hidden">.</span>
+          <Link href="/privacy" className="hover:underline">
+            CLIENT PRIVACY POLICY
+          </Link> */}
           <span className="lg:hidden">.</span>
-          <Link href="/privacy" className="hover:underline">CLIENT PRIVACY POLICY</Link>
-          <span className="lg:hidden">.</span>
-          <Link href="/privacy" className="hover:underline">TERMS AND CONDITIONS</Link>
+          <Link href="/terms-and-conditions" className="hover:underline">
+            TERMS AND CONDITIONS
+          </Link>
         </div>
       </div>
     </footer>
