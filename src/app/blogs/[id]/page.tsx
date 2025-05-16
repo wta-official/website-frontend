@@ -93,17 +93,11 @@ const Blog = async ({ params }: Props) => {
           </div>
         </Images>
 
-        <section className="prose prose-lg lg:prose-xl mx-auto p-10 md:p-16 lg:p-20">
+        <section className="prose prose-invert prose-lg lg:prose-xl max-w-3xl mx-auto px-4 md:px-8 py-10">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {blog.content}
           </ReactMarkdown>
         </section>
-
-        {/* <section className="prose prose-lg lg:prose-xl mx-auto p-10 md:p-16 lg:p-20">
-          <div
-            dangerouslySetInnerHTML={{ __html: formatContent(blog.content) }}
-          />
-        </section> */}
       </Suspense>
     );
   } catch (error) {
