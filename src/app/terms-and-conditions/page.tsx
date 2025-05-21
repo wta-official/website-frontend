@@ -75,10 +75,10 @@ const TermsAndConditions = () => {
       </p>
       <p>
         <a
-          href="mailto:wta.officaial@gmail.com"
+          href="mailto:hello@workingtalentagency.com"
           className="text-blue-600 underline"
         >
-          wta.officaial@gmail.com
+          hello@workingtalentagency.com{' '}
         </a>
       </p>
     </section>
