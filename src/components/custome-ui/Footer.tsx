@@ -3,14 +3,16 @@ import '../../../src/app/globals.css';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, X } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, X, Youtube } from 'lucide-react';
 import Carousel from './Carousel';
+import { TiktokIcon } from '../icons/TiktokIcon';
 
 // Reusable constants for content
 const CONTACT_DETAILS = [
-  '08186010105, 08134491733',
-  'hello@workingtalentagency.com',
-  '48, Awolowo Road, Ikoyi Lagos',
+  { label: '+2348186010105', type: 'phone' },
+  { label: '+2348134491733', type: 'phone' },
+  { label: 'hello@workingtalentagency.com', type: 'email' },
+  { label: '48, Awolowo Road, Ikoyi Lagos', type: 'address' },
 ];
 
 const QUICK_LINKS = [
@@ -22,10 +24,23 @@ const QUICK_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { href: '/', ariaLabel: 'Instagram', Icon: Instagram },
-  { href: '/', ariaLabel: 'Facebook', Icon: Facebook },
-  { href: '/', ariaLabel: 'Twitter', Icon: X },
-  { href: '/', ariaLabel: 'LinkedIn', Icon: Linkedin },
+  {
+    href: 'https://www.instagram.com/workingtalentagency?igsh=MWkyOXh0ZGd1OG11MA==',
+    ariaLabel: 'Instagram',
+    Icon: Instagram,
+  },
+  {
+    href: 'https://youtube.com/@workingtalentagency?si=KGNbG05-BWaOVZL-',
+    ariaLabel: 'Youtube',
+    Icon: Youtube,
+  },
+  {
+    href: 'https://www.tiktok.com/@workingtalentagency?_t=ZM-8wVdelc3hVY&_r=1',
+    ariaLabel: 'TikTok',
+    Icon: TiktokIcon,
+  },
+
+  // { href: '/', ariaLabel: 'LinkedIn', Icon: Linkedin },
 ];
 
 // Footer Component
@@ -90,16 +105,41 @@ const Footer = () => {
             <h3 className="font-bold text-xl lg:text-2xl mb-6 lg:mb-8">
               Contact Us
             </h3>
-            {CONTACT_DETAILS.map((detail, index) => (
-              <p key={index} className="text-sm lg:text-base mb-2">
-                {detail}
-              </p>
-            ))}
+            {CONTACT_DETAILS.map(({ label, type }, index) => {
+              let href = '';
+
+              if (type === 'phone') href = `tel:${label.replace(/\s/g, '')}`;
+              if (type === 'email') href = `mailto:${label}`;
+              if (type === 'address')
+                href =
+                  'https://maps.google.com/?q=' + encodeURIComponent(label);
+
+              const isLink =
+                type === 'phone' || type === 'email' || type === 'address';
+
+              return isLink ? (
+                <a
+                  key={index}
+                  href={href}
+                  target={type === 'address' ? '_blank' : undefined}
+                  rel={type === 'address' ? 'noopener noreferrer' : undefined}
+                  className="text-sm lg:text-base mb-2 hover:underline hover:text-blue-400 block"
+                >
+                  {label}
+                </a>
+              ) : (
+                <p key={index} className="text-sm lg:text-base mb-2">
+                  {label}
+                </p>
+              );
+            })}
             <div className="flex gap-4 mt-4">
               {SOCIAL_LINKS.map(({ href, ariaLabel, Icon }) => (
                 <a
                   key={ariaLabel}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={ariaLabel}
                   className="hover:text-blue-500"
                 >
