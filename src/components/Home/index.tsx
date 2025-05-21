@@ -45,7 +45,7 @@ const Homepage = () => {
         </div>
 
         {/* Latest News Section */}
-        <Suspense
+        {/* <Suspense
           fallback={
             <div className="flex justify-center items-center h-32">
               <TriangleLoader
@@ -58,7 +58,7 @@ const Homepage = () => {
           }
         >
           <News />
-        </Suspense>
+        </Suspense> */}
 
         {/* FAQ Section */}
         {/* <div className="pb-10 sm:pb-20 lg:pb-32">
