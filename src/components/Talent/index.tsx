@@ -6,13 +6,15 @@ import Socials from '../custome-ui/Socials';
 import Biography from '../custome-ui/Biography';
 import Carousel from '../custome-ui/Carousel';
 import Image from 'next/image';
-import {
-  ArrowRight,
-  FacebookIcon,
-  Instagram,
-  LinkedinIcon,
-  X,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
+import { SiTiktok } from 'react-icons/si';
+import { SiInstagram } from 'react-icons/si';
+import { BsTwitterX } from 'react-icons/bs';
+import { SiLinkedin } from 'react-icons/si';
+import { SiFacebook } from 'react-icons/si';
+import { SiThreads } from 'react-icons/si';
+import { SiYoutube } from 'react-icons/si';
 import TriangleLoader from '../custome-ui/Loader';
 import Link from 'next/link';
 
@@ -31,10 +33,13 @@ type Talent = {
   hair: string;
   height: string;
   dietary_requirements: string;
-  instagram: string;
-  linkedIn: string;
-  x: string;
-  facebook: string;
+  instagram?: string;
+  linkedIn?: string;
+  x?: string;
+  facebook?: string;
+  tiktoc?: string;
+  thread?: string;
+  youtube?: string;
   roles: string[];
   partners: { id: number; image: string }[];
   works: { image: string; title: string; category?: { title: string }[] }[];
@@ -84,7 +89,6 @@ const TalentPage = async ({ id }: TalentProps) => {
     );
 
     const groupedWorksArray = Object.entries(groupedWorks);
-
     return (
       <div>
         {/* Hero Section */}
@@ -95,18 +99,41 @@ const TalentPage = async ({ id }: TalentProps) => {
                 {talent.name}
               </h1>
               <div className="flex gap-4 md:gap-6 mt-4">
-                <Socials socialLinks={talent.instagram}>
-                  <Instagram />
-                </Socials>
-                <Socials socialLinks={talent.linkedIn}>
-                  <LinkedinIcon />
-                </Socials>
-                <Socials socialLinks={talent.x}>
-                  <X />
-                </Socials>
-                <Socials socialLinks={talent.facebook}>
-                  <FacebookIcon />
-                </Socials>
+                {talent.instagram && (
+                  <Socials socialLinks={talent.instagram}>
+                    <SiInstagram />
+                  </Socials>
+                )}
+                {talent.linkedIn && (
+                  <Socials socialLinks={talent.linkedIn}>
+                    <SiLinkedin />
+                  </Socials>
+                )}
+                {talent.x && (
+                  <Socials socialLinks={talent.x}>
+                    <BsTwitterX />
+                  </Socials>
+                )}
+                {talent.facebook && (
+                  <Socials socialLinks={talent.facebook}>
+                    <SiFacebook />
+                  </Socials>
+                )}
+                {talent.tiktoc && (
+                  <Socials socialLinks={talent.tiktoc}>
+                    <SiTiktok />
+                  </Socials>
+                )}
+                {talent.thread && (
+                  <Socials socialLinks={talent.thread}>
+                    <SiThreads />
+                  </Socials>
+                )}
+                {talent.youtube && (
+                  <Socials socialLinks={talent.youtube}>
+                    <SiYoutube />
+                  </Socials>
+                )}
               </div>
               <Link
                 href={`/form/${id}`}
