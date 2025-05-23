@@ -3,9 +3,10 @@ import '../../../src/app/globals.css';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, X, Youtube } from 'lucide-react';
 import Carousel from './Carousel';
-import { TiktokIcon } from '../icons/TiktokIcon';
+import { SiTiktok } from 'react-icons/si';
+import { SiInstagram } from 'react-icons/si';
+import { SlSocialYoutube } from 'react-icons/sl';
 
 // Reusable constants for content
 const CONTACT_DETAILS = [
@@ -27,17 +28,17 @@ const SOCIAL_LINKS = [
   {
     href: 'https://www.instagram.com/workingtalentagency?igsh=MWkyOXh0ZGd1OG11MA==',
     ariaLabel: 'Instagram',
-    Icon: Instagram,
+    Icon: SiInstagram,
   },
   {
     href: 'https://youtube.com/@workingtalentagency?si=KGNbG05-BWaOVZL-',
     ariaLabel: 'Youtube',
-    Icon: Youtube,
+    Icon: SlSocialYoutube,
   },
   {
     href: 'https://www.tiktok.com/@workingtalentagency?_t=ZM-8wVdelc3hVY&_r=1',
     ariaLabel: 'TikTok',
-    Icon: TiktokIcon,
+    Icon: SiTiktok,
   },
 
   // { href: '/', ariaLabel: 'LinkedIn', Icon: Linkedin },
@@ -141,7 +142,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={ariaLabel}
-                  className="hover:text-blue-500"
+                  className="hover:text-blue-400"
                 >
                   <Icon className="text-xl lg:text-2xl" />
                 </a>
