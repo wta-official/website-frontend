@@ -37,7 +37,7 @@ const Homepage = () => {
         {/* Highlight Image */}
         <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
           <Image
-            src="/images/about/wtaabout.jpg"
+            src="/images/talents/herotalent2.png"
             alt="Services Banner"
             fill
             className="rounded-md object-contain object-center"
