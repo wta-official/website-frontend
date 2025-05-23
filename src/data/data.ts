@@ -1,13 +1,13 @@
-import Talent1 from "../../public/images/talents/talent1.png";
-import Talent2 from "../../public/images/talents/talent2.png";
-import Talent3 from "../../public/images/talents/talent3.png";
-import Talent4 from "../../public/images/talents/talent4.png";
+import Talent1 from '../../public/images/talents/talent1.png';
+import Talent2 from '../../public/images/talents/talent2.png';
+import Talent3 from '../../public/images/talents/talent3.png';
+import Talent4 from '../../public/images/talents/talent4.png';
 
-import Founder1 from "../../public/images/founders/founder1.jpg";
-import Founder2 from "../../public/images/founders/founder2.jpg";
-import Founder3 from "../../public/images/founders/founder3.jpg";
+import Founder1 from '../../public/images/founders/founder1.jpg';
+import Founder2 from '../../public/images/founders/founder2.jpg';
+import Founder3 from '../../public/images/founders/founder3.jpg';
 
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export type Category = {
   id: number;
@@ -76,8 +76,8 @@ export interface Founders {
 export const founders: Founders[] = [
   {
     image: Founder1,
-    name: "Taiwo Adeyemi",
-    position: "Creative Director",
+    name: 'Taiwo Adeyemi',
+    position: 'Partner',
     about: `Taiwo Adeyemi, fondly known as ‘Oga Boxx’, is a seasoned talent manager, creative businessman, and a quiet influence driving the brands and image of African stars from behind the scenes. 
 
 Building on a solid foundation in advertising, Taiwo Adeyemi has established a remarkable reputation for connecting top brands and talents, creating iconic partnerships, and amplifying their missions to reach global audiences. His portfolio includes work with leading brands in telecommunication, FMCG, aviation, real estate, governmental and non-governmental organizations. Taiwo is known for his work with Nollywood idol Nse Ikpe-Etim, where he led the efforts for her inspiring comeback after a prolonged hiatus, and for his pivotal role with National Chessmaster Tunde Onakoya’s world-record campaign to raise a million dollars for underprivileged children in Africa.
@@ -90,8 +90,8 @@ Taiwo has earned academic recognition from prestigious institutions such as the 
   },
   {
     image: Founder2,
-    name: "Adesegun Adetoro",
-    position: "Creative Director",
+    name: 'Adesegun Adetoro',
+    position: 'Partner',
     about: `Adesegun Adetoro is a creative and finance professional with over thirteen years of experience in related fields. 
 
 As a creative professional, Adesegun is a fierce lover of the Nigerian creative space with primary interests in the film industry. He began his career within a technology firm providing solutions to cinema audiences in 2012. This led to him setting up one of Nigeria’s foremost film media sites, ‘The MoviePencil’, which focused on film reviews, industry news, and commentary focused on the growth of Nigeria’s film industry. As his experience in the film industry progressed, Adesegun transitioned from his role as the Editor of The MoviePencil to consult on film projects in both a creative and business capacity, actively assisting filmmakers to structure their businesses for success and raise finance for film production. 
@@ -107,8 +107,8 @@ When he’s not working as a finance or creative professional, Adesegun enjoys t
   },
   {
     image: Founder3,
-    name: "Demi Banwo",
-    position: "Creative Director",
+    name: 'Demi Banwo',
+    position: 'Partner',
     about: `Trained at The Arts Education Schools, London (ArtsEd London), Demi Banwo stands as a dynamic actor, seamlessly navigating the realms of TV, stage, and musical theatre productions. In September 2016, he culminated his intensive acting training, earning a Master's degree in Acting from ArtsEd London.
 
 Prior to his foray into the world of acting, Demi lent his charismatic presence as an On-Air Presenter at Smooth 98.1 FM, anchoring captivating primetime shows. As an actor in Nigeria, he left an indelible mark, notably portraying the recurring character of Yemi in Ndani's TV show Gidi Up, broadcast on AfricaMagic Entertainment, YouTube, and OHTV in the UK. His versatility further manifested in the role of JoGo on AfricaMagic's Hotel Majestic and as a cast member in the inaugural international run of Wakaa The Musical in London, as well as the Johannesburg run of Kakadu the Musical.

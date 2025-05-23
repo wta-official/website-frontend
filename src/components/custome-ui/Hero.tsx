@@ -25,9 +25,9 @@ const Hero = () => {
               id="hero-heading"
               className="text-center sm:text-left text-3xl md:text-5xl font-light leading-snug md:leading-tight"
             >
-              Working talents
+              Working Talents
               <br />
-              <span className="font-bold">Make us tick. </span>
+              <span className="font-bold">make us tick. </span>
             </h1>
           </motion.div>
 
@@ -39,7 +39,14 @@ const Hero = () => {
           >
             Welcome to{' '}
             <span className="font-semibold">The Working Talent Agency</span>
-            ,where Africa's brightest stars find their home.
+          </motion.p>
+
+          <motion.p
+            className="mt-6 text-lg md:text-2xl leading-6 sm:leading-8 max-w-full sm:max-w-2xl text-center sm:text-left"
+            {...animations}
+            transition={{ ...animations.transition, delay: 0.3 }}
+          >
+            Where Africa's brightest stars find their home.
           </motion.p>
         </section>
       </Images>
