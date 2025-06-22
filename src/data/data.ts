@@ -2,6 +2,8 @@ import Talent1 from '../../public/images/talents/talent1.png';
 import Talent2 from '../../public/images/talents/talent2.png';
 import Talent3 from '../../public/images/talents/talent3.png';
 import Talent4 from '../../public/images/talents/talent4.png';
+import Talent5 from '../../public/images/talents/talent5.jpeg';
+import Talent6 from '../../public/images/talents/talent6.png';
 
 import Founder1 from '../../public/images/founders/founder1.jpg';
 import Founder2 from '../../public/images/founders/founder2.jpg';
@@ -64,7 +66,14 @@ export interface FaqData {
   answer: string;
 }
 
-export const talents: StaticImageData[] = [Talent1, Talent2, Talent3, Talent4];
+export const talents: StaticImageData[] = [
+  Talent1,
+  Talent2,
+  Talent3,
+  Talent4,
+  Talent5,
+  Talent6,
+];
 
 export interface Founders {
   image: StaticImageData;
