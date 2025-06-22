@@ -1,4 +1,5 @@
 import { founders } from '@/data/data';
+import { formatName } from '@/utils/string';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -36,7 +37,7 @@ const Founder = () => {
             {/* Founder Details */}
             <div className="p-2 md:p-4 w-full flex justify-between items-center">
               <p className="text-lg sm:text-xl md:text-xl lg:text-2xl font-semibold truncate">
-                {founder.name || 'Unknown'}
+                {formatName(founder.name) || 'Unknown'}
               </p>
               <div className="flex items-center space-x-2">
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl truncate">
