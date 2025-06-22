@@ -25,7 +25,7 @@ const Hero = () => {
               id="hero-heading"
               className="text-center sm:text-left text-3xl md:text-5xl font-light leading-snug md:leading-tight"
             >
-              Working Talents
+              Working Talent
               <br />
               <span className="font-bold">make us tick. </span>
             </h1>

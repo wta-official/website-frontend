@@ -17,6 +17,7 @@ import { SiThreads } from 'react-icons/si';
 import { SiYoutube } from 'react-icons/si';
 import TriangleLoader from '../custome-ui/Loader';
 import Link from 'next/link';
+import { formatName } from '@/utils/string';
 
 // Props Type
 type TalentProps = {
@@ -96,7 +97,7 @@ const TalentPage = async ({ id }: TalentProps) => {
           <div className="w-full flex justify-center items-end bg-gradient-to-t from-black/80 via-black/50 to-transparent">
             <div className="p-6 md:p-10 lg:p-20 flex flex-col items-center space-y-6 text-white">
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">
-                {talent.name}
+                {formatName(talent.name)}
               </h1>
               <div className="flex gap-4 md:gap-6 mt-4">
                 {talent.instagram && (

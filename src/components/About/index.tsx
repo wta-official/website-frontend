@@ -44,14 +44,14 @@ We are reshaping the future of talent management in Nigeria by forging meaningfu
       {/* <History /> */}
 
       {/* Image Section */}
-      <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
+      {/* <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[600px]">
         <Image
           src="/images/about/wtaabout3.jpg"
           alt="Services Banner"
           fill
           className="rounded-md object-contain"
         />
-      </div>
+      </div> */}
 
       {/* Founder Section */}
       <Founder />
