@@ -1,4 +1,5 @@
 import { Talent } from '@/data/data';
+import { formatName } from '@/utils/string';
 import { ArrowRight } from 'lucide-react';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
@@ -38,19 +39,19 @@ const TalentsCard = ({ talentInfo }: TalentsCardProps) => {
         {/* Content Section */}
         <div className="p-4 space-y-2">
           {/* Name */}
-          <h4 className="text-xl font-bold">{talentInfo.name}</h4>
+          <h4 className="text-xl font-bold">{formatName(talentInfo.name)}</h4>
 
           {/* Positions */}
           <div className="flex justify-between items-center">
             <div className="flex flex-wrap space-x-2 items-center">
               <p>
                 <span className="text-sm md:text-base opacity-85">
-                  {talentInfo.roles[0]}
+                  {talentInfo.roles[0].toUpperCase()}
                 </span>
                 <span className="mr-2"> •</span>
                 {talentInfo.roles[1] && (
                   <span className="text-sm md:text-base opacity-85">
-                    {talentInfo.roles[1]}
+                    {talentInfo.roles[1].toUpperCase()}
                   </span>
                 )}
               </p>

@@ -59,7 +59,7 @@ const Footer = () => {
               height={42.53}
             />
             <p className="font-bold text-xl lg:text-2xl">
-              Working Talents Agency
+              Working Talent Agency
             </p>
           </div>
         </div>
